@@ -13,7 +13,7 @@
         <div class="col-lg-7 px-4 text-start">
             <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                 <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                <small>Jl. Soekarno Hatta Magelang 56125</small>
+                <small>{{ $profile->address }}</small>
             </div>
             <div class="h-100 d-inline-flex align-items-center py-3">
                 <small class="far fa-clock text-primary me-2"></small>

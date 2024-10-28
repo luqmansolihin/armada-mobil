@@ -12,10 +12,10 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Title</label>
+                            <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-6">
                                 <input type="text" name="title"
-                                    class="form-control @error('title') is-invalid @enderror" id="name"
+                                    class="form-control @error('title') is-invalid @enderror" id="title"
                                     placeholder="Title" value="{{ old('title') }}" required>
                                 @error('title')
                                     <span class="error invalid-feedback">{{ $message }}</span>

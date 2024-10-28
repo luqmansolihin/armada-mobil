@@ -4,7 +4,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Alamat</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jl. Soekarno Hatta Magelang 56125</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $profile->address }}</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>Phone: (0293) 365211, Fax: (0293) 365210</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>aimpusat88@gmail.com</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@aim.nag.co.id</p>
@@ -39,9 +39,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Tentang Armada</h4>
-                <p>
-                    Untuk memenuhi kebutuhan kendaraan Daihatsu dan Isuzu Anda kami hadir lebih dekat, lebih lengkap dan lebih besar. Berlokasi di tempat yang strategis di berbagai macam wilayah di Indonesia.
-                </p>
+                <p>{{ $profile->short_description }}</p>
                 <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </div>

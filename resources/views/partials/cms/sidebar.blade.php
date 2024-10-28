@@ -23,6 +23,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.profiles.index') }}" class="nav-link @if(request()->is('cms/profiles*')) active @endif">
+                        <i class="nav-icon fas fa-building"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.banners.index') }}" class="nav-link @if(request()->is('cms/banners*')) active @endif">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>Banner</p>

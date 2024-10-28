@@ -3,7 +3,9 @@
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
+use App\Http\Controllers\CMS\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController as ContentProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+Route::get('/profile', [ContentProfileController::class, 'index'])->name('profile');
 
 Route::prefix('cms')->group(function () {
     Route::get('/', function () {
@@ -41,6 +44,11 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [BannerController::class, 'edit'])->name('cms.banners.edit');
             Route::put('/{id}/update', [BannerController::class, 'update'])->name('cms.banners.update');
             Route::delete('/{id}', [BannerController::class, 'destroy'])->name('cms.banners.delete');
+        });
+
+        Route::prefix('profiles')->group(function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('cms.profiles.index');
+            Route::put('/update', [ProfileController::class, 'update'])->name('cms.profiles.update');
         });
     });
 });

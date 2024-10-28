@@ -43,7 +43,7 @@
                     <a href="#" class="dropdown-item">Testimonial</a>
                 </div>
             </div>
-            <a href="#" class="nav-item nav-link">Profile</a>
+            <a href="{{ route('profile') }}" class="nav-item nav-link">Profile</a>
             <a href="#" class="nav-item nav-link">Blogs</a>
             <a href="#" class="nav-item nav-link">Promotion</a>
             <a href="#" class="nav-item nav-link">Career</a>

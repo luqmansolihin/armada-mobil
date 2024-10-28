@@ -42,15 +42,13 @@
             <div class="row g-5">
                 <div class="col-lg-6 pt-4" style="min-height: 400px;">
                     <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/about.jpg"
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ $profile->cover }}"
                              style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <h1 class="mb-4"> About <span class="text-primary">Armada Mobil</span> </h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-                        et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat
-                        amet</p>
+                    <p class="mb-4">{{ $profile->short_description }}</p>
                 </div>
             </div>
         </div>
@@ -60,6 +58,9 @@
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-5">Our Services</h1>
+            </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="d-flex py-5 px-4">
@@ -97,7 +98,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-5">Latest Products</h1>
+                <h1 class="mb-5">Latest Products!</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -131,7 +132,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <button class="btn btn-primary w-100 py-3" type="submit">
-                                        <i class="fa fa-search"></i> <span>Search</span>
+                                        <i class="fa fa-search me-3"></i> <span>Search</span>
                                     </button>
                                 </div>
                             </div>

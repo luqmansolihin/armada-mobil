@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Profile;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -14,6 +15,10 @@ class HomeController extends Controller
             ->where('status', 1)
             ->get();
 
-        return view('pages.home', compact('banners'));
+        $profile = Profile::query()
+            ->select(['address', 'short_description', 'cover'])
+            ->first();
+
+        return view('pages.home', compact('banners', 'profile'));
     }
 }
