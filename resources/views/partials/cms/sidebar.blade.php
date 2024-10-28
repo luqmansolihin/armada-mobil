@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="#" class="brand-link">
+    <a href="{{ route('homepage') }}" class="brand-link">
         <img src="{{ asset('logo/short-logo.png') }}" alt="" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light"><b class="text-primary">ARMADA</b> <i class="text-danger">mobil</i></span>
     </a>

@@ -5,18 +5,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Banners | Create</h3>
+                    <h3 class="card-title">Banners | Edit</h3>
                 </div>
 
-                <form class="form-horizontal" action="{{ route('cms.banners.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ route('cms.banners.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
                             <label for="name" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-6">
                                 <input type="text" name="title"
-                                    class="form-control @error('title') is-invalid @enderror" id="name"
-                                    placeholder="Title" value="{{ old('title') }}" required>
+                                       class="form-control @error('title') is-invalid @enderror" id="name"
+                                       placeholder="Title" value="{{ old('title', $banner->title) }}" required>
                                 @error('title')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -28,7 +29,7 @@
                                 <div class="custom-file">
                                     <input type="file" name="image" id="image"
                                            class="custom-file-input @error('image') is-invalid @enderror"
-                                           onchange="previewImage()" required>
+                                           onchange="previewImage()">
                                     <label class="custom-file-label" for="image">Choose Image</label>
                                 </div>
                                 @error('image')
@@ -38,19 +39,19 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-sm-2"></div>
-                            <img class="col-sm-6 img-preview" src="">
+                            <img class="col-sm-6 img-preview" src="{{ $banner->image }}">
                         </div>
                         <div class="form-group row">
                             <label for="status" class="col-sm-2 col-form-label">Status</label>
                             <div class="col-sm-6">
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input @error('status') is-invalid @enderror"
-                                           type="radio" id="active" name="status" value="1" @checked(old('status', '1') == '1')>
+                                           type="radio" id="active" name="status" value="1" @checked(old('status', $banner->status) == '1')>
                                     <label for="active" class="custom-control-label">Active</label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input @error('status') is-invalid @enderror"
-                                           type="radio" id="inactive" name="status" value="0" @checked(old('status') == '0')>
+                                           type="radio" id="inactive" name="status" value="0" @checked(old('status', $banner->status) == '0')>
                                     <label for="inactive" class="custom-control-label">Inactive</label>
                                 </div>
                                 @error('status')

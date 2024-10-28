@@ -3,9 +3,8 @@
 namespace App\Http\Requests\CMS;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class BannerStoreRequest extends FormRequest
+class BannerUpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,7 +16,7 @@ class BannerStoreRequest extends FormRequest
         return [
             'user_id' => 'sometimes|integer|exists:users,id',
             'title' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'image' => 'sometimes|image|mimes:jpeg,jpg,png|max:2048',
             'status' => 'required|boolean',
         ];
     }

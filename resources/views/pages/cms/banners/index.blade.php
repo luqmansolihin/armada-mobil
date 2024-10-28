@@ -42,8 +42,8 @@
                                 <td>{{ $banner->title }}</td>
                                 <td>@if($banner->status) active @else inactive @endif</td>
                                 <td>
-                                    <a href="#" class="badge bg-warning" title="Update"><i class="fas fa-edit"></i></a>
-                                    <form action="#" method="POST" class="d-inline">
+                                    <a href="{{ route('cms.banners.edit', $banner->id) }}" class="badge bg-warning" title="Update"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('cms.banners.delete', $banner->id) }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="badge bg-danger border-0" title="Delete" onclick="return confirm('Are you sure you want to delete?')">
