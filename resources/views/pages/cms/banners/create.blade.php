@@ -14,15 +14,11 @@
                         <div class="form-group row">
                             <label for="name" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-6">
-                                <input type="text"
-                                       name="name"
-                                       class="form-control @error('name') is-invalid @enderror"
-                                       id="name"
-                                       placeholder="Title"
-                                       value="{{ old('title') }}"
-                                       required>
+                                <input type="text" name="name"
+                                    class="form-control @error('name') is-invalid @enderror" id="name"
+                                    placeholder="Title" value="{{ old('title') }}" required>
                                 @error('title')
-                                <span class="error invalid-feedback">{{ $message }}</span>
+                                    <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
@@ -30,30 +26,28 @@
                             <label for="image" class="col-sm-2 col-form-label">Image</label>
                             <div class="input-group col-sm-6">
                                 <div class="custom-file">
-                                    <input type="file" name="image" id="image" class="custom-file-input @error('image') is-invalid @enderror"
-                                           id="image" onchange="previewImage()" required>
+                                    <input type="file" name="image" id="image"
+                                        class="custom-file-input @error('image') is-invalid @enderror" id="image"
+                                        onchange="previewImage()" required>
                                     <label class="custom-file-label" for="image">Choose Image</label>
                                     @error('image')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-sm-2"></div>
-                            <div class="col-sm-6 ml-0">
-                                <div>
-                                    <img class="profile-user-img img-fluid img-preview">
-                                </div>
-                            </div>
+                            <img class="col-sm-6 img-preview">
                         </div>
                         <div class="form-group row">
                             <label for="status" class="col-sm-2 col-form-label">Status</label>
                             <div class="col-sm-6">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="active" name="status" checked>
+                                    <input class="custom-control-input" type="radio" id="active" name="status"
+                                        checked>
                                     <label for="active" class="custom-control-label">Active</label>
                                 </div>
                                 <div class="custom-control custom-radio">
