@@ -1,7 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('homepage') }}" class="brand-link">
         <img src="{{ asset('logo/short-logo.png') }}" alt="" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light"><b class="text-primary">ARMADA</b> <i class="text-danger">mobil</i></span>
+        <span class="brand-text font-weight-light"><b class="text-primary">ARMADA</b> <i
+                class="text-danger">mobil</i></span>
     </a>
 
     <div class="sidebar">
@@ -15,54 +16,66 @@
         </div>
 
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('cms.dashboard.index') }}" class="nav-link @if(request()->is('cms/dashboard*')) active @endif">
+                    <a href="{{ route('cms.dashboard.index') }}"
+                        class="nav-link @if (request()->is('cms/dashboard*')) active @endif">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('cms.profiles.index') }}" class="nav-link @if(request()->is('cms/profiles*')) active @endif">
+                    <a href="{{ route('cms.profiles.index') }}"
+                        class="nav-link @if (request()->is('cms/profiles*')) active @endif">
                         <i class="nav-icon fas fa-building"></i>
                         <p>Profile</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('cms.banners.index') }}" class="nav-link @if(request()->is('cms/banners*')) active @endif">
+                    <a href="{{ route('cms.banners.index') }}"
+                        class="nav-link @if (request()->is('cms/banners*')) active @endif">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>Banner</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('cms.blogs.index') }}" class="nav-link @if(request()->is('cms/blogs*')) active @endif">
+                    <a href="{{ route('cms.products.index') }}"
+                        class="nav-link @if (request()->is('cms/products*')) active @endif">
+                        <i class="nav-icon fas fa-car"></i>
+                        <p>Product</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cms.blogs.index') }}"
+                        class="nav-link @if (request()->is('cms/blogs*')) active @endif">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>Blog</p>
                     </a>
                 </li>
-{{--                <li class="nav-item @if(request()->is('medicines*') OR request()->is('patients*')) menu-open @endif">--}}
-{{--                    <a href="#" class="nav-link @if(request()->is('medicines*') OR request()->is('patients*')) active @endif">--}}
-{{--                        <i class="nav-icon fas fa-database"></i>--}}
-{{--                        <p>--}}
-{{--                            Master--}}
-{{--                            <i class="right fas fa-angle-left"></i>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{ route('medicines.index') }}" class="nav-link @if(request()->is('medicines*')) active @endif">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Medicine</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{ route('patients.index') }}" class="nav-link @if(request()->is('patients*')) active @endif">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Patient</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                {{--                <li class="nav-item @if (request()->is('medicines*') or request()->is('patients*')) menu-open @endif"> --}}
+                {{--                    <a href="#" class="nav-link @if (request()->is('medicines*') or request()->is('patients*')) active @endif"> --}}
+                {{--                        <i class="nav-icon fas fa-database"></i> --}}
+                {{--                        <p> --}}
+                {{--                            Master --}}
+                {{--                            <i class="right fas fa-angle-left"></i> --}}
+                {{--                        </p> --}}
+                {{--                    </a> --}}
+                {{--                    <ul class="nav nav-treeview"> --}}
+                {{--                        <li class="nav-item"> --}}
+                {{--                            <a href="{{ route('medicines.index') }}" class="nav-link @if (request()->is('medicines*')) active @endif"> --}}
+                {{--                                <i class="far fa-circle nav-icon"></i> --}}
+                {{--                                <p>Medicine</p> --}}
+                {{--                            </a> --}}
+                {{--                        </li> --}}
+                {{--                        <li class="nav-item"> --}}
+                {{--                            <a href="{{ route('patients.index') }}" class="nav-link @if (request()->is('patients*')) active @endif"> --}}
+                {{--                                <i class="far fa-circle nav-icon"></i> --}}
+                {{--                                <p>Patient</p> --}}
+                {{--                            </a> --}}
+                {{--                        </li> --}}
+                {{--                    </ul> --}}
+                {{--                </li> --}}
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

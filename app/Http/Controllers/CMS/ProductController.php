@@ -3,33 +3,38 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CMS\BlogStoreRequest;
-use App\Http\Requests\CMS\BlogUpdateRequest;
-use App\Models\Blog;
+use App\Http\Requests\CMS\ProductStoreRequest;
+use App\Http\Requests\CMS\ProductUpdateRequest;
+use App\Models\Product;
+use App\Models\ProductBrand;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
-class BlogController extends Controller
+class ProductController extends Controller
 {
     public function index(): View
     {
-        $blogs = Blog::query()
-            ->select(['id', 'title', 'status', 'created_at'])
-            ->orderByDesc('created_at')
+        $products = Product::query()
+            ->with('productBrand')
+            ->select(['id', 'title', 'status', 'product_brand_id'])
             ->get();
 
-        return view('pages.cms.blogs.index', compact('blogs'));
+        return view('pages.cms.products.index', compact('products'));
     }
 
     public function create(): View
     {
-        return view('pages.cms.blogs.create');
+        $productBrands = ProductBrand::query()
+            ->where('name', 'isuzu')
+            ->get();
+
+        return view('pages.cms.products.create', compact('productBrands'));
     }
 
-    public function store(BlogStoreRequest $request): RedirectResponse
+    public function store(ProductStoreRequest $request): RedirectResponse
     {
         $image = $request->file('image');
         $mime = $image->getClientMimeType();
@@ -39,26 +44,32 @@ class BlogController extends Controller
             'image' => "data:{$mime};base64,{$base64}"
         ]);
 
-        Blog::query()->create($request->all());
+        Product::query()->create($request->all());
 
-        return to_route('cms.blogs.index')->with('success', 'Blog has been created.');
+        return to_route('cms.products.index')->with('success', 'Product has been created.');
     }
 
     public function edit(int $id): View
     {
-        $blog = Blog::query()->findOrFail($id);
+        $productBrands = ProductBrand::query()
+            ->where('name', 'isuzu')
+            ->get();
 
-        return view('pages.cms.blogs.edit', compact('blog'));
+        $product = Product::query()
+            ->select(['id', 'title', 'product_brand_id', 'image', 'content', 'status'])
+            ->findOrFail($id);
+
+        return view('pages.cms.products.edit', compact('productBrands', 'product'));
     }
 
-    public function update(int $id, BlogUpdateRequest $request): RedirectResponse
+    public function update(int $id, ProductUpdateRequest $request): RedirectResponse
     {
         try {
             DB::beginTransaction();
 
             $validatedRequest = $request->validated();
 
-            $blog = Blog::query()->findOrFail($id);
+            $product = Product::query()->findOrFail($id);
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
@@ -68,11 +79,11 @@ class BlogController extends Controller
                 $validatedRequest['image'] = "data:{$mime};base64,{$base64}";
             }
 
-            $blog->update($validatedRequest);
+            $product->update($validatedRequest);
 
             DB::commit();
 
-            return to_route('cms.blogs.index')->with('success', 'Blog has been edited.');
+            return to_route('cms.products.index')->with('success', 'Product has been edited.');
         } catch (QueryException $queryException) {
             Log::error($queryException->getTraceAsString());
 
@@ -87,15 +98,15 @@ class BlogController extends Controller
         try {
             DB::beginTransaction();
 
-            $block = Blog::query()->findOrFail($id);
+            $product = Product::query()->findOrFail($id);
 
-            $block->update(['user_id' => auth()->user()->id]);
+            $product->update(['user_id' => auth()->user()->id]);
 
-            $block->delete();
+            $product->delete();
 
             DB::commit();
 
-            return to_route('cms.blogs.index')->with('success', 'Blog has been deleted.');
+            return to_route('cms.products.index')->with('success', 'Product has been deleted.');
         } catch (QueryException $queryException) {
             Log::error($queryException->getTraceAsString());
 

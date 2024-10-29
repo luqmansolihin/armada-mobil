@@ -12,7 +12,8 @@
                     <h3 class="card-title">Blogs | Edit</h3>
                 </div>
 
-                <form class="form-horizontal" action="{{ route('cms.blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ route('cms.blogs.update', $blog->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
@@ -20,8 +21,8 @@
                             <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-6">
                                 <input type="text" name="title"
-                                       class="form-control @error('title') is-invalid @enderror" id="title"
-                                       placeholder="Title" value="{{ old('title', $blog->title) }}" required>
+                                    class="form-control @error('title') is-invalid @enderror" id="title"
+                                    placeholder="Title" value="{{ old('title', $blog->title) }}" required>
                                 @error('title')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -32,8 +33,8 @@
                             <div class="input-group col-sm-6">
                                 <div class="custom-file">
                                     <input type="file" name="image" id="image"
-                                           class="custom-file-input @error('image') is-invalid @enderror"
-                                           onchange="previewImage()">
+                                        class="custom-file-input @error('image') is-invalid @enderror"
+                                        onchange="previewImage()">
                                     <label class="custom-file-label" for="image">Choose Image</label>
                                 </div>
                                 @error('image')
@@ -48,9 +49,8 @@
                         <div class="form-group row">
                             <label for="content" class="col-sm-2 col-form-label">Content</label>
                             <div class="col-sm-10">
-                                <textarea name="content"
-                                          class="form-control @error('content') is-invalid @enderror" id="content"
-                                          placeholder="Content" rows="4" required>{{ old('content', $blog->content) }}
+                                <textarea name="content" class="form-control @error('content') is-invalid @enderror" id="content"
+                                    placeholder="Content" rows="4" required>{{ old('content', $blog->content) }}
                                 </textarea>
                                 @error('content')
                                     <span class="error invalid-feedback">{{ $message }}</span>
@@ -61,13 +61,13 @@
                             <label for="status" class="col-sm-2 col-form-label">Status</label>
                             <div class="col-sm-6">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input @error('status') is-invalid @enderror"
-                                           type="radio" id="active" name="status" value="1" @checked(old('status', $blog->status) == '1')>
+                                    <input class="custom-control-input @error('status') is-invalid @enderror" type="radio"
+                                        id="active" name="status" value="1" @checked(old('status', $blog->status) == '1')>
                                     <label for="active" class="custom-control-label">Active</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input @error('status') is-invalid @enderror"
-                                           type="radio" id="inactive" name="status" value="0" @checked(old('status', $blog->status) == '0')>
+                                    <input class="custom-control-input @error('status') is-invalid @enderror" type="radio"
+                                        id="inactive" name="status" value="0" @checked(old('status', $blog->status) == '0')>
                                     <label for="inactive" class="custom-control-label">Inactive</label>
                                 </div>
                                 @error('status')
@@ -79,7 +79,7 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{ route('cms.banners.index') }}" class="btn btn-warning">Cancel</a>
+                        <a href="{{ route('cms.blogs.index') }}" class="btn btn-warning">Cancel</a>
                     </div>
                 </form>
             </div>

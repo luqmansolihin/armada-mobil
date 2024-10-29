@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Blogs</h3>
+                    <h3 class="card-title">Products</h3>
                 </div>
 
                 <div class="card-body">
@@ -25,34 +25,34 @@
                     @endif
 
                     <div class="col-lg-2 p-0 mb-2">
-                        <a href="{{ route('cms.blogs.create') }}" class="btn btn-primary btn-block">Add Blog</a>
+                        <a href="{{ route('cms.products.create') }}" class="btn btn-primary btn-block">Add product</a>
                     </div>
 
-                    <table id="blogs" class="table table-bordered table-striped">
+                    <table id="products" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Title</th>
+                                <th>Brand</th>
                                 <th>Status</th>
-                                <th>Create Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($blogs as $blog)
+                            @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $blog->title }}</td>
+                                    <td>{{ $product->title }}</td>
+                                    <td>{{ strtoupper($product->productBrand->name) }}</td>
                                     <td>
-                                        @if ($blog->status)
+                                        @if ($product->status)
                                             active
                                         @else
                                             inactive
                                         @endif
                                     </td>
-                                    <td>{{ $blog->created_at->tz('Asia/Jakarta')->format('d-m-Y H:i:s') }}</td>
                                     <td>
-                                        <a href="{{ route('cms.blogs.edit', $blog->id) }}" class="badge bg-warning"
+                                        <a href="{{ route('cms.products.edit', $product->id) }}" class="badge bg-warning"
                                             title="Update"><i class="fas fa-edit"></i></a>
-                                        <form action="{{ route('cms.blogs.delete', $blog->id) }}" method="POST"
+                                        <form action="{{ route('cms.products.delete', $product->id) }}" method="POST"
                                             class="d-inline">
                                             @method('delete')
                                             @csrf
@@ -88,13 +88,10 @@
 
     <script>
         $(function() {
-            $("#blogs").DataTable({
+            $("#products").DataTable({
                     "responsive": true,
                     "lengthChange": false,
                     "autoWidth": false,
-                    "order": [
-                        [2, 'desc']
-                    ],
                     "buttons": [{
                             extend: 'print',
                             exportOptions: {
@@ -118,7 +115,7 @@
                 })
                 .buttons()
                 .container()
-                .appendTo('#blogs_wrapper .col-md-6:eq(0)');
+                .appendTo('#products_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endpush

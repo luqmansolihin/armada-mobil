@@ -5,8 +5,10 @@ use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
+use App\Http\Controllers\CMS\ProductController;
 use App\Http\Controllers\CMS\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as ContentProductController;
 use App\Http\Controllers\ProfileController as ContentProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +30,11 @@ Route::get('/profile', [ContentProfileController::class, 'index'])->name('profil
 Route::prefix('blogs')->group(function () {
     Route::get('/', [ContentBlogController::class, 'index'])->name('blogs.index');
     Route::get('/{slug}', [ContentBlogController::class, 'show'])->name('blogs.show');
+});
+
+Route::prefix('products')->group(function () {
+    Route::get('/', [ContentProductController::class, 'index'])->name('products.index');
+    Route::get('/{slug}', [ContentProductController::class, 'show'])->name('products.show');
 });
 
 Route::prefix('cms')->group(function () {
@@ -66,6 +73,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [BlogController::class, 'edit'])->name('cms.blogs.edit');
             Route::put('/{id}/update', [BlogController::class, 'update'])->name('cms.blogs.update');
             Route::delete('/{id}', [BlogController::class, 'destroy'])->name('cms.blogs.delete');
+        });
+
+        Route::prefix('products')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('cms.products.index');
+            Route::get('/create', [ProductController::class, 'create'])->name('cms.products.create');
+            Route::post('/store', [ProductController::class, 'store'])->name('cms.products.store');
+            Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('cms.products.edit');
+            Route::put('/{id}/update', [ProductController::class, 'update'])->name('cms.products.update');
+            Route::delete('/{id}', [ProductController::class, 'destroy'])->name('cms.products.delete');
         });
     });
 });

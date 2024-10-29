@@ -9,10 +9,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Blogs | Create</h3>
+                    <h3 class="card-title">Products | Create</h3>
                 </div>
 
-                <form class="form-horizontal" action="{{ route('cms.blogs.store') }}" method="POST"
+                <form class="form-horizontal" action="{{ route('cms.products.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
@@ -23,6 +23,23 @@
                                     class="form-control @error('title') is-invalid @enderror" id="title"
                                     placeholder="Title" value="{{ old('title') }}" required>
                                 @error('title')
+                                    <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="brand" class="col-sm-2 col-form-label">Brand</label>
+                            <div class="col-sm-6">
+                                <select name="product_brand_id"
+                                    class="form-control custom_select @error('product_brand_id') is-invalid @enderror"
+                                    id="brand" placeholder="Choose Brand" value="{{ old('product_brand_id') }}"
+                                    required>
+                                    @foreach ($productBrands as $productBrand)
+                                        <option value="{{ $productBrand->id }}">{{ strtoupper($productBrand->name) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('product_brand_id')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -78,7 +95,7 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{ route('cms.blogs.index') }}" class="btn btn-warning">Cancel</a>
+                        <a href="{{ route('cms.products.index') }}" class="btn btn-warning">Cancel</a>
                     </div>
                 </form>
             </div>

@@ -11,42 +11,11 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link">Home</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Isuzu</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="#" class="dropdown-item">Booking</a>
-                    <a href="#" class="dropdown-item">Technicians</a>
-                    <a href="#" class="dropdown-item">Testimonial</a>
-                </div>
-            </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Daihatsu</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="#" class="dropdown-item">Booking</a>
-                    <a href="#" class="dropdown-item">Technicians</a>
-                    <a href="#" class="dropdown-item">Testimonial</a>
-                </div>
-            </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">After Sales</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="#" class="dropdown-item">Booking</a>
-                    <a href="#" class="dropdown-item">Technicians</a>
-                    <a href="#" class="dropdown-item">Testimonial</a>
-                </div>
-            </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Branch</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="#" class="dropdown-item">Booking</a>
-                    <a href="#" class="dropdown-item">Technicians</a>
-                    <a href="#" class="dropdown-item">Testimonial</a>
-                </div>
-            </div>
-            <a href="{{ route('profile') }}" class="nav-item nav-link">Profile</a>
-            <a href="{{ route('blogs.index') }}" class="nav-item nav-link">Blogs</a>
+            <a href="{{ route('products.index') }}" class="nav-item nav-link">Our Products</a>
+            <a href="{{ route('blogs.index') }}" class="nav-item nav-link">News</a>
             <a href="#" class="nav-item nav-link">Promotion</a>
             <a href="#" class="nav-item nav-link">Career</a>
+            <a href="{{ route('profile') }}" class="nav-item nav-link">About Us</a>
         </div>
     </div>
 

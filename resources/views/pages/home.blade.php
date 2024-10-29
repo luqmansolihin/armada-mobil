@@ -94,25 +94,30 @@
     <!-- Service End -->
 
     <!-- Latest Product Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-5">Latest Products!</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                            <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                                <a class="btn mx-1" href="">AYLA <i class="fa fa-arrow-right ms-3"></i></a>
+    @if ($products)
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-5">Latest Products!</h1>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    @foreach ($products as $product)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item">
+                                <div class="position-relative overflow-hidden">
+                                    <img class="img-fluid" src="{{ $product->image }}" alt="">
+                                    <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
+                                        <a class="btn mx-1" href="{{ route('products.show', $product->slug) }}">
+                                            {{ $product->title }} <i class="fa fa-arrow-right ms-3"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
+    @endif
     <!-- Latest Product End -->
 
     <!-- Find Product -->
