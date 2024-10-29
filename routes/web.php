@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CMS\BannerController;
+use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
 use App\Http\Controllers\CMS\ProfileController;
@@ -49,6 +50,15 @@ Route::prefix('cms')->group(function () {
         Route::prefix('profiles')->group(function () {
             Route::get('/', [ProfileController::class, 'index'])->name('cms.profiles.index');
             Route::put('/update', [ProfileController::class, 'update'])->name('cms.profiles.update');
+        });
+
+        Route::prefix('blogs')->group(function () {
+            Route::get('/', [BlogController::class, 'index'])->name('cms.blogs.index');
+            Route::get('/create', [BlogController::class, 'create'])->name('cms.blogs.create');
+            Route::post('/store', [BlogController::class, 'store'])->name('cms.blogs.store');
+            Route::get('/{id}/edit', [BlogController::class, 'edit'])->name('cms.blogs.edit');
+            Route::put('/{id}/update', [BlogController::class, 'update'])->name('cms.blogs.update');
+            Route::delete('/{id}', [BlogController::class, 'destroy'])->name('cms.blogs.delete');
         });
     });
 });

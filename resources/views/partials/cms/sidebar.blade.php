@@ -34,6 +34,12 @@
                         <p>Banner</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('cms.blogs.index') }}" class="nav-link @if(request()->is('cms/blogs*')) active @endif">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>Blog</p>
+                    </a>
+                </li>
 {{--                <li class="nav-item @if(request()->is('medicines*') OR request()->is('patients*')) menu-open @endif">--}}
 {{--                    <a href="#" class="nav-link @if(request()->is('medicines*') OR request()->is('patients*')) active @endif">--}}
 {{--                        <i class="nav-icon fas fa-database"></i>--}}

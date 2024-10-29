@@ -40,7 +40,7 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Tentang Armada</h4>
                 <p>{{ $profile->short_description }}</p>
-                <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="{{ route('profile') }}" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </div>
     </div>

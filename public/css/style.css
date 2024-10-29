@@ -429,3 +429,13 @@
     font-size: 3rem;
     font-weight: bold;
 }
+
+.img-container {
+    height: 325px;
+}
+
+.img-container img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
