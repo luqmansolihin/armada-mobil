@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController as ContentBlogController;
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
+use App\Http\Controllers\CMS\BrochureController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
 use App\Http\Controllers\CMS\ProductController;
@@ -82,6 +83,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('cms.products.edit');
             Route::put('/{id}/update', [ProductController::class, 'update'])->name('cms.products.update');
             Route::delete('/{id}', [ProductController::class, 'destroy'])->name('cms.products.delete');
+        });
+
+        Route::prefix('brochures')->group(function () {
+            Route::get('/', [BrochureController::class, 'index'])->name('cms.brochures.index');
+            Route::get('/create', [BrochureController::class, 'create'])->name('cms.brochures.create');
+            Route::post('/store', [BrochureController::class, 'store'])->name('cms.brochures.store');
+            Route::get('/{id}/edit', [BrochureController::class, 'edit'])->name('cms.brochures.edit');
+            Route::put('/{id}/update', [BrochureController::class, 'update'])->name('cms.brochures.update');
+            Route::delete('/{id}', [BrochureController::class, 'destroy'])->name('cms.brochures.delete');
         });
     });
 });

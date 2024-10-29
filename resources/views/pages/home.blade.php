@@ -189,7 +189,7 @@
                                                 class="fa fa-arrow-right ms-3"></i></a>
                                     </div>
                                 </div>
-                                <div class="bg-light text-center p-4">
+                                <div class="bg-light text-left p-4">
                                     <small>{{ $blog->created_at->tz('Asia/Jakarta')->format('F d, Y') }}</small>
                                     <h5 class="fw-bold mb-0">{{ $blog->title }}</h5>
                                 </div>
