@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController as ContentBlogController;
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\DashboardController;
@@ -21,7 +22,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
 Route::get('/profile', [ContentProfileController::class, 'index'])->name('profile');
+
+Route::prefix('blogs')->group(function () {
+    Route::get('/', [ContentBlogController::class, 'index'])->name('blogs.index');
+    Route::get('/{slug}', [ContentBlogController::class, 'show'])->name('blogs.show');
+});
 
 Route::prefix('cms')->group(function () {
     Route::get('/', function () {

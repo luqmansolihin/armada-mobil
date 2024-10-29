@@ -44,7 +44,7 @@
                 </div>
             </div>
             <a href="{{ route('profile') }}" class="nav-item nav-link">Profile</a>
-            <a href="#" class="nav-item nav-link">Blogs</a>
+            <a href="{{ route('blogs.index') }}" class="nav-item nav-link">Blogs</a>
             <a href="#" class="nav-item nav-link">Promotion</a>
             <a href="#" class="nav-item nav-link">Career</a>
         </div>

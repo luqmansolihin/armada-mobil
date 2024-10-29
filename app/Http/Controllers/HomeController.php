@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Blog;
 use App\Models\Profile;
 use Illuminate\View\View;
 
@@ -19,6 +20,12 @@ class HomeController extends Controller
             ->select(['address', 'short_description', 'cover'])
             ->first();
 
-        return view('pages.home', compact('banners', 'profile'));
+        $blogs = Blog::query()
+            ->select(['user_id', 'slug', 'title', 'image', 'content', 'created_at'])
+            ->where('status', 1)
+            ->orderByDesc('created_at')
+            ->get();
+
+        return view('pages.home', compact('banners', 'profile', 'blogs'));
     }
 }
