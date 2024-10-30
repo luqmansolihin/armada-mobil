@@ -33,13 +33,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('cms.banners.index') }}"
-                        class="nav-link @if (request()->is('cms/banners*')) active @endif">
-                        <i class="nav-icon fas fa-sliders-h"></i>
-                        <p>Banner</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('cms.products.index') }}"
                         class="nav-link @if (request()->is('cms/products*')) active @endif">
                         <i class="nav-icon fas fa-car"></i>
@@ -51,6 +44,20 @@
                         class="nav-link @if (request()->is('cms/blogs*')) active @endif">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>Blog</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cms.banners.index') }}"
+                        class="nav-link @if (request()->is('cms/banners*')) active @endif">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p>Banner</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cms.brochures.index') }}"
+                        class="nav-link @if (request()->is('cms/brochures*')) active @endif">
+                        <i class="nav-icon fas fa-folder-open"></i>
+                        <p>Brochure</p>
                     </a>
                 </li>
                 {{--                <li class="nav-item @if (request()->is('medicines*') or request()->is('patients*')) menu-open @endif"> --}}

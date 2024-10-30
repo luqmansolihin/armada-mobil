@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Products</h3>
+                    <h3 class="card-title">Brochures</h3>
                 </div>
 
                 <div class="card-body">
@@ -25,34 +25,34 @@
                     @endif
 
                     <div class="col-lg-2 p-0 mb-2">
-                        <a href="{{ route('cms.products.create') }}" class="btn btn-primary btn-block">Add Product</a>
+                        <a href="{{ route('cms.brochures.create') }}" class="btn btn-primary btn-block">Add Brochure</a>
                     </div>
 
-                    <table id="products" class="table table-bordered table-striped">
+                    <table id="brochures" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Brand</th>
                                 <th>Status</th>
+                                <th>URL</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($products as $product)
+                            @foreach ($brochures as $brochure)
                                 <tr>
-                                    <td>{{ $product->title }}</td>
-                                    <td>{{ strtoupper($product->productBrand->name) }}</td>
+                                    <td>{{ $brochure->title }}</td>
                                     <td>
-                                        @if ($product->status)
+                                        @if ($brochure->status)
                                             active
                                         @else
                                             inactive
                                         @endif
                                     </td>
+                                    <td>{{ $brochure->url }}</td>
                                     <td>
-                                        <a href="{{ route('cms.products.edit', $product->id) }}" class="badge bg-warning"
+                                        <a href="{{ route('cms.brochures.edit', $brochure->id) }}" class="badge bg-warning"
                                             title="Update"><i class="fas fa-edit"></i></a>
-                                        <form action="{{ route('cms.products.delete', $product->id) }}" method="POST"
+                                        <form action="{{ route('cms.brochures.delete', $brochure->id) }}" method="POST"
                                             class="d-inline">
                                             @method('delete')
                                             @csrf
@@ -88,7 +88,7 @@
 
     <script>
         $(function() {
-            $("#products").DataTable({
+            $("#brochures").DataTable({
                     "responsive": true,
                     "lengthChange": false,
                     "autoWidth": false,
@@ -115,7 +115,7 @@
                 })
                 .buttons()
                 .container()
-                .appendTo('#products_wrapper .col-md-6:eq(0)');
+                .appendTo('#brochures_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endpush

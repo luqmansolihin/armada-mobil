@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\Brochure;
 use App\Models\Product;
 use App\Models\Profile;
 use Illuminate\View\View;
@@ -14,6 +15,7 @@ class HomeController extends Controller
     {
         $banners = Banner::query()
             ->select(['title', 'image'])
+            ->orderByDesc('id')
             ->where('status', 1)
             ->get();
 
@@ -31,9 +33,16 @@ class HomeController extends Controller
         $products = Product::query()
             ->select(['slug', 'title', 'image'])
             ->where('status', 1)
+            ->orderByDesc('id')
             ->limit(6)
             ->get();
 
-        return view('pages.home', compact('banners', 'profile', 'blogs', 'products'));
+        $brochures = Brochure::query()
+            ->select(['title', 'url'])
+            ->orderByDesc('id')
+            ->where('status', 1)
+            ->get();
+
+        return view('pages.home', compact('banners', 'profile', 'blogs', 'products', 'brochures'));
     }
 }

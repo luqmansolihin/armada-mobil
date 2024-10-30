@@ -12,11 +12,9 @@
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>isuzu@aim.nag.co.id</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i
-                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -28,19 +26,19 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Brosur</h4>
-                <p class="mb-2">
-                    <i class="fa fa-folder-open me-3">
-                    </i><a class="text-decoration-none text-white" href="">Unduh Brosur Brand Isuzu</a>
-                </p>
-                <p class="mb-2">
-                    <i class="fa fa-folder-open me-3">
-                    </i><a class="text-decoration-none text-white" href="">Unduh Brosur Brand Daihatsu</a>
-                </p>
+                @foreach ($brochures as $brochure)
+                    <p class="mb-2">
+                        <i class="fa fa-folder-open me-3">
+                        </i><a class="text-decoration-none text-white"
+                            href="{{ $brochure->url }}">{{ $brochure->title }}</a>
+                    </p>
+                @endforeach
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Tentang Armada</h4>
                 <p>{{ $profile->short_description }}</p>
-                <a href="{{ route('profile') }}" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="{{ route('profile') }}" class="btn btn-primary py-3 px-5 mt-3">Read More<i
+                        class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </div>
     </div>
