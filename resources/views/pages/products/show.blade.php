@@ -2,18 +2,18 @@
 
 @section('content')
     <!-- Cover Start-->
-    <div class="cover container-fluid d-flex align-items-center justify-content-center mb-5">
-        <img src="{{ $product->image }}" alt="Cover Image" />
-        <div class="overlay"></div>
-        <div>
-            <h1 class="text-white">{{ strtoupper($product->title) }}</h1>
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url('{{ $product->image }}');">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center py-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">{{ strtoupper($product->title) }}</h1>
+            </div>
         </div>
     </div>
     <!-- Cover End-->
 
     <!-- About Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div class="container wow fadeInUp" data-wow-delay="0.1s">
             {!! $product->content !!}
         </div>
     </div>
