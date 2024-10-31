@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brochure;
 use App\Models\Profile;
+use App\Models\Testimonial;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -20,6 +21,11 @@ class ProfileController extends Controller
             ->where('status', 1)
             ->get();
 
-        return view('pages.profile', compact('profile', 'brochures'));
+        $testimonials = Testimonial::query()
+            ->select(['name', 'profession', 'image', 'testimonial'])
+            ->where('status', 1)
+            ->get();
+
+        return view('pages.profile', compact('profile', 'brochures', 'testimonials'));
     }
 }

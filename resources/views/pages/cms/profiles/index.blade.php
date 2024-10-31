@@ -12,11 +12,12 @@
                     <h3 class="card-title">Profile</h3>
                 </div>
 
-                <form class="form-horizontal" action="{{ route('cms.profiles.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ route('cms.profiles.update') }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                        @if(session()->has('success'))
+                        @if (session()->has('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <strong>{{ session()->get('success') }}</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -30,8 +31,8 @@
                             <div class="input-group col-sm-6">
                                 <div class="custom-file">
                                     <input type="file" name="cover" id="cover"
-                                           class="custom-file-input @error('cover') is-invalid @enderror"
-                                           onchange="previewImage()">
+                                        class="custom-file-input @error('cover') is-invalid @enderror"
+                                        onchange="previewImage()">
                                     <label class="custom-file-label" for="cover">Choose Image</label>
                                 </div>
                                 @error('cover')
@@ -46,9 +47,8 @@
                         <div class="form-group row">
                             <label for="address" class="col-sm-2 col-form-label">Address</label>
                             <div class="col-sm-6">
-                                <textarea name="address"
-                                          class="form-control @error('address') is-invalid @enderror" id="address"
-                                          placeholder="Address" rows="2" required>{{ old('address', $profile->address) }}
+                                <textarea name="address" class="form-control @error('address') is-invalid @enderror" id="address"
+                                    placeholder="Address" rows="2" required>{{ old('address', $profile->address) }}
                                 </textarea>
                                 @error('address')
                                     <span class="error invalid-feedback">{{ $message }}</span>
@@ -58,10 +58,8 @@
                         <div class="form-group row">
                             <label for="short_description" class="col-sm-2 col-form-label">Short Description</label>
                             <div class="col-sm-6">
-                                <textarea name="short_description"
-                                       class="form-control @error('short_description') is-invalid @enderror" id="short_description"
-                                       placeholder="Short description" rows="4" required>{{ old('short_description', $profile->short_description) }}
-                                </textarea>
+                                <textarea name="short_description" class="form-control @error('short_description') is-invalid @enderror"
+                                    id="short_description" placeholder="Short description" rows="4" required>{{ old('short_description', $profile->short_description) }}</textarea>
                                 @error('short_description')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -70,9 +68,8 @@
                         <div class="form-group row">
                             <label for="description" class="col-sm-2 col-form-label">Description</label>
                             <div class="col-sm-10">
-                                <textarea name="description"
-                                          class="form-control @error('description') is-invalid @enderror" id="description"
-                                          placeholder="Description" rows="4" required>{{ old('description', $profile->description) }}
+                                <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description"
+                                    placeholder="Description" rows="4" required>{{ old('description', $profile->description) }}
                                 </textarea>
                                 @error('description')
                                     <span class="error invalid-feedback">{{ $message }}</span>

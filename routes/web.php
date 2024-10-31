@@ -8,6 +8,7 @@ use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
 use App\Http\Controllers\CMS\ProductController;
 use App\Http\Controllers\CMS\ProfileController;
+use App\Http\Controllers\CMS\TestimonialController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as ContentProductController;
 use App\Http\Controllers\ProfileController as ContentProfileController;
@@ -92,6 +93,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [BrochureController::class, 'edit'])->name('cms.brochures.edit');
             Route::put('/{id}/update', [BrochureController::class, 'update'])->name('cms.brochures.update');
             Route::delete('/{id}', [BrochureController::class, 'destroy'])->name('cms.brochures.delete');
+        });
+
+        Route::prefix('testimonials')->group(function () {
+            Route::get('/', [TestimonialController::class, 'index'])->name('cms.testimonials.index');
+            Route::get('/create', [TestimonialController::class, 'create'])->name('cms.testimonials.create');
+            Route::post('/store', [TestimonialController::class, 'store'])->name('cms.testimonials.store');
+            Route::get('/{id}/edit', [TestimonialController::class, 'edit'])->name('cms.testimonials.edit');
+            Route::put('/{id}/update', [TestimonialController::class, 'update'])->name('cms.testimonials.update');
+            Route::delete('/{id}', [TestimonialController::class, 'destroy'])->name('cms.testimonials.delete');
         });
     });
 });

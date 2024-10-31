@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brochure;
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Testimonial;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -43,6 +44,11 @@ class HomeController extends Controller
             ->where('status', 1)
             ->get();
 
-        return view('pages.home', compact('banners', 'profile', 'blogs', 'products', 'brochures'));
+        $testimonials = Testimonial::query()
+            ->select(['name', 'profession', 'image', 'testimonial'])
+            ->where('status', 1)
+            ->get();
+
+        return view('pages.home', compact('banners', 'profile', 'blogs', 'products', 'brochures', 'testimonials'));
     }
 }

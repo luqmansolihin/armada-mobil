@@ -54,6 +54,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.testimonials.index') }}"
+                        class="nav-link @if (request()->is('cms/testimonials*')) active @endif">
+                        <i class="nav-icon fas fa-comment-dots"></i>
+                        <p>Testimonial</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.brochures.index') }}"
                         class="nav-link @if (request()->is('cms/brochures*')) active @endif">
                         <i class="nav-icon fas fa-folder-open"></i>
