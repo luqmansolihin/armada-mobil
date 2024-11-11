@@ -11,11 +11,21 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link">Home</a>
-            <a href="{{ route('products.index') }}" class="nav-item nav-link">Our Products</a>
+            <a href="{{ route('products.index') }}" class="nav-item nav-link">Product</a>
+            <a href="#" class="nav-item nav-link">Service</a>
             <a href="{{ route('blogs.index') }}" class="nav-item nav-link">News</a>
-            <a href="#" class="nav-item nav-link">Promotion</a>
+            <a href="#" class="nav-item nav-link">Outlet</a>
             <a href="#" class="nav-item nav-link">Career</a>
             <a href="{{ route('profile') }}" class="nav-item nav-link">About Us</a>
+
+            <!-- Kolom Pencarian di Tengah -->
+            <form class="form-inline d-flex align-items-center me-auto" action="#" method="GET">
+                <div class="position-relative mx-auto">
+                    <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Search">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><i
+                            class="fas fa fa-search"></i></button>
+                </div>
+            </form>
         </div>
     </div>
 
