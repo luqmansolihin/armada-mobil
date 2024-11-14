@@ -6,6 +6,7 @@ use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\BrochureController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
+use App\Http\Controllers\CMS\OperationalHourController;
 use App\Http\Controllers\CMS\ProductController;
 use App\Http\Controllers\CMS\ProfileController;
 use App\Http\Controllers\CMS\TestimonialController;
@@ -66,6 +67,15 @@ Route::prefix('cms')->group(function () {
         Route::prefix('profiles')->group(function () {
             Route::get('/', [ProfileController::class, 'index'])->name('cms.profiles.index');
             Route::put('/update', [ProfileController::class, 'update'])->name('cms.profiles.update');
+        });
+
+        Route::prefix('operational-hours')->group(function () {
+            Route::get('/', [OperationalHourController::class, 'index'])->name('cms.operational-hours.index');
+            Route::get('/create', [OperationalHourController::class, 'create'])->name('cms.operational-hours.create');
+            Route::post('/store', [OperationalHourController::class, 'store'])->name('cms.operational-hours.store');
+            Route::get('/{id}/edit', [OperationalHourController::class, 'edit'])->name('cms.operational-hours.edit');
+            Route::put('/{id}/update', [OperationalHourController::class, 'update'])->name('cms.operational-hours.update');
+            Route::delete('/{id}', [OperationalHourController::class, 'destroy'])->name('cms.operational-hours.delete');
         });
 
         Route::prefix('blogs')->group(function () {

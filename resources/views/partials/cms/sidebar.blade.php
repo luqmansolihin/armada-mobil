@@ -33,6 +33,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.operational-hours.index') }}"
+                        class="nav-link @if (request()->is('cms/operational-hours*')) active @endif">
+                        <i class="nav-icon fas fa-clock"></i>
+                        <p>Operational Hour</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.products.index') }}"
                         class="nav-link @if (request()->is('cms/products*')) active @endif">
                         <i class="nav-icon fas fa-car"></i>

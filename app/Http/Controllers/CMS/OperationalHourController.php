@@ -3,53 +3,53 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CMS\BrochureStoreRequest;
-use App\Http\Requests\CMS\BrochureUpdateRequest;
-use App\Models\Brochure;
+use App\Http\Requests\CMS\OperationalHourStoreRequest;
+use App\Http\Requests\CMS\OperationalHourUpdateRequest;
+use App\Models\OperationalHour;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
-class BrochureController extends Controller
+class OperationalHourController extends Controller
 {
     public function index(): View
     {
-        $brochures = Brochure::query()
-            ->select(['id', 'title', 'url', 'status'])
+        $operationalHours = OperationalHour::query()
+            ->select(['id', 'day_from', 'day_to', 'open_time', 'close_time'])
             ->get();
 
-        return view('pages.cms.brochures.index', compact('brochures'));
+        return view('pages.cms.operational-hours.index', compact('operationalHours'));
     }
 
     public function create(): View
     {
-        return view('pages.cms.brochures.create');
+        return view('pages.cms.operational-hours.create');
     }
 
-    public function store(BrochureStoreRequest $request): RedirectResponse
+    public function store(OperationalHourStoreRequest $request): RedirectResponse
     {
-        Brochure::query()->create($request->validated());
+        OperationalHour::query()->create($request->validated());
 
-        return to_route('cms.brochures.index')->with('success', 'Brochure has been created.');
+        return to_route('cms.operational-hours.index')->with('success', 'Operational hour has been created.');
     }
 
     public function edit(int $id): View
     {
-        $brochure = Brochure::query()
+        $brochure = OperationalHour::query()
             ->select(['id', 'title', 'url', 'status'])
             ->findOrFail($id);
 
         return view('pages.cms.brochures.edit', compact('brochure'));
     }
 
-    public function update(int $id, BrochureUpdateRequest $request): RedirectResponse
+    public function update(int $id, OperationalHourUpdateRequest $request): RedirectResponse
     {
         try {
             DB::beginTransaction();
 
-            $brochure = Brochure::query()->findOrFail($id);
+            $brochure = OperationalHour::query()->findOrFail($id);
 
             $brochure->update($request->validated());
 
@@ -70,15 +70,15 @@ class BrochureController extends Controller
         try {
             DB::beginTransaction();
 
-            $brochure = Brochure::query()->findOrFail($id);
+            $operationalHour = OperationalHour::query()->findOrFail($id);
 
-            $brochure->update(['user_id' => auth()->user()->id]);
+            $operationalHour->update(['user_id' => auth()->user()->id]);
 
-            $brochure->delete();
+            $operationalHour->delete();
 
             DB::commit();
 
-            return to_route('cms.brochures.index')->with('success', 'Brochure has been deleted.');
+            return to_route('cms.operational-hours.index')->with('success', 'Operational hour has been deleted.');
         } catch (QueryException $queryException) {
             Log::error($queryException->getTraceAsString());
 
