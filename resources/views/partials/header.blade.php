@@ -1,6 +1,6 @@
 <!-- Spinner Start -->
 <div id="spinner"
-     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
     <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
         <span class="sr-only">Loading...</span>
     </div>
@@ -17,7 +17,18 @@
             </div>
             <div class="h-100 d-inline-flex align-items-center py-3">
                 <small class="far fa-clock text-primary me-2"></small>
-                <small>Senin - Jumat : 08.00 - 16.30, Sabtu : 08.00 - 12.00</small>
+                <small>
+                    @foreach ($operationalHours as $operationalHour)
+                        {{ ($loop->index >= 1 ? ', ' : '') .
+                            ($operationalHour->day_from == $operationalHour->day_to
+                                ? $operationalHour->day_from
+                                : $operationalHour->day_from . ' - ' . $operationalHour->day_to) .
+                            ': ' .
+                            Carbon\Carbon::parse($operationalHour->open_time)->format('H:i') .
+                            ' - ' .
+                            Carbon\Carbon::parse($operationalHour->close_time)->format('H:i') }}
+                    @endforeach
+                </small>
             </div>
         </div>
         <div class="col-lg-5 px-4 text-end">

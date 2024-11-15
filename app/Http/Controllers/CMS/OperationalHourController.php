@@ -37,11 +37,11 @@ class OperationalHourController extends Controller
 
     public function edit(int $id): View
     {
-        $brochure = OperationalHour::query()
-            ->select(['id', 'title', 'url', 'status'])
+        $operationalHour = OperationalHour::query()
+            ->select(['id', 'day_from', 'day_to', 'open_time', 'close_time'])
             ->findOrFail($id);
 
-        return view('pages.cms.brochures.edit', compact('brochure'));
+        return view('pages.cms.operational-hours.edit', compact('operationalHour'));
     }
 
     public function update(int $id, OperationalHourUpdateRequest $request): RedirectResponse
@@ -49,13 +49,13 @@ class OperationalHourController extends Controller
         try {
             DB::beginTransaction();
 
-            $brochure = OperationalHour::query()->findOrFail($id);
+            $operationalHour = OperationalHour::query()->findOrFail($id);
 
-            $brochure->update($request->validated());
+            $operationalHour->update($request->validated());
 
             DB::commit();
 
-            return to_route('cms.brochures.index')->with('success', 'Brochure has been edited.');
+            return to_route('cms.operational-hours.index')->with('success', 'Operational hour has been edited.');
         } catch (QueryException $queryException) {
             Log::error($queryException->getTraceAsString());
 

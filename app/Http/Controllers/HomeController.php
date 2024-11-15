@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DayEnum;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Brochure;
+use App\Models\OperationalHour;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\Testimonial;
@@ -49,6 +51,19 @@ class HomeController extends Controller
             ->where('status', 1)
             ->get();
 
-        return view('pages.home', compact('banners', 'profile', 'blogs', 'products', 'brochures', 'testimonials'));
+        $operationalHours = OperationalHour::query()
+            ->select(['day_from', 'day_to', 'open_time', 'close_time'])
+            ->orderByRaw("CASE
+            WHEN day_from = '".DayEnum::Monday->value."' THEN 1
+            WHEN day_from = '".DayEnum::Tuesday->value."' THEN 2
+            WHEN day_from = '".DayEnum::Wednesday->value."' THEN 3
+            WHEN day_from = '".DayEnum::Thursday->value."' THEN 4
+            WHEN day_from = '".DayEnum::Friday->value."' THEN 5
+            WHEN day_from = '".DayEnum::Saturday->value."' THEN 6
+            WHEN day_from = '".DayEnum::Sunday->value."' THEN 7
+            END")
+            ->get();
+
+        return view('pages.home', compact('banners', 'profile', 'blogs', 'products', 'brochures', 'testimonials', 'operationalHours'));
     }
 }

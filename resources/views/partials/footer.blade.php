@@ -19,10 +19,16 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Jam Buka</h4>
-                <h6 class="text-light">Senin - Jumat:</h6>
-                <p class="mb-4">08.00 - 16.30</p>
-                <h6 class="text-light">Sabtu:</h6>
-                <p class="mb-0">08.00 - 12.00</p>
+                @foreach ($operationalHours as $operationalHour)
+                    <h6 class="text-light">
+                        {{ $operationalHour->day_from == $operationalHour->day_to
+                            ? $operationalHour->day_from
+                            : $operationalHour->day_from . ' - ' . $operationalHour->day_to }}
+                    </h6>
+                    <p class="mb-4">
+                        {{ Carbon\Carbon::parse($operationalHour->open_time)->format('H:i') . ' - ' . Carbon\Carbon::parse($operationalHour->close_time)->format('H:i') }}
+                    </p>
+                @endforeach
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Brosur</h4>
