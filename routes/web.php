@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController as ContentBlogController;
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\BrochureController;
+use App\Http\Controllers\CMS\ContactController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
 use App\Http\Controllers\CMS\OperationalHourController;
@@ -112,6 +113,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [TestimonialController::class, 'edit'])->name('cms.testimonials.edit');
             Route::put('/{id}/update', [TestimonialController::class, 'update'])->name('cms.testimonials.update');
             Route::delete('/{id}', [TestimonialController::class, 'destroy'])->name('cms.testimonials.delete');
+        });
+
+        Route::prefix('contacts')->group(function () {
+            Route::get('/', [ContactController::class, 'index'])->name('cms.contacts.index');
+            Route::get('/create', [ContactController::class, 'create'])->name('cms.contacts.create');
+            Route::post('/store', [ContactController::class, 'store'])->name('cms.contacts.store');
+            Route::get('/{id}/edit', [ContactController::class, 'edit'])->name('cms.contacts.edit');
+            Route::put('/{id}/update', [ContactController::class, 'update'])->name('cms.contacts.update');
+            Route::delete('/{id}', [ContactController::class, 'destroy'])->name('cms.contacts.delete');
         });
     });
 });

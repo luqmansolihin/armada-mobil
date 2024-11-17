@@ -33,18 +33,29 @@
         </div>
         <div class="col-lg-5 px-4 text-end">
             <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                <small class="fa fa-phone-alt text-primary me-2"></small>
-                <small>Phone: (0293) 365211, Fax: (0293) 365210</small>
+                @foreach($phoneFaxs as $phoneFax)
+                    @if($phoneFax->type == \App\Enums\ContactTypeEnum::PHONE->value)
+                        <small class="fa fa-phone-alt text-primary me-2"></small>
+                    @else
+                        <small class="fa fa-fax text-primary me-2"></small>
+                    @endif
+                    <small class="me-2">{{ $phoneFax->contact }}</small>
+                @endforeach
             </div>
             <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn btn-sm-square bg-white text-primary me-1" href="#"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href="#"><i
-                        class="fab fa-twitter"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href="#"><i
-                        class="fab fa-youtube"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-0" href="#"><i
-                        class="fab fa-instagram"></i></a>
+                @foreach($socMeds as $socMed)
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="{{ $socMed->contact }}" target="_blank">
+                        @if($socMed->type == \App\Enums\ContactTypeEnum::FACEBOOK->value)
+                            <i class="fab fa-facebook-f"></i>
+                        @elseif($socMed->type == \App\Enums\ContactTypeEnum::INSTAGRAM->value)
+                            <i class="fab fa-instagram"></i>
+                        @elseif($socMed->type == \App\Enums\ContactTypeEnum::TWITTER->value)
+                            <i class="fab fa-twitter"></i>
+                        @else
+                            <i class="fab fa-youtube"></i>
+                        @endif
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>

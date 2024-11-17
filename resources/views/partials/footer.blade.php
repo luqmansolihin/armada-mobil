@@ -5,16 +5,35 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Alamat</h4>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $profile->address }}</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>Phone: (0293) 365211, Fax: (0293) 365210</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>aimpusat88@gmail.com</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@aim.nag.co.id</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>isuzu@aim.nag.co.id</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>isuzu@aim.nag.co.id</p>
+                @foreach($phoneFaxs as $phoneFax)
+                    <p class="mb-2">
+                        <i class="fa
+                        @if($phoneFax->type == \App\Enums\ContactTypeEnum::PHONE->value)
+                            fa-phone-alt
+                        @else
+                            fa-fax
+                        @endif
+                        me-3"></i>
+                        {{ $phoneFax->contact }}
+                    </p>
+                @endforeach
+                @foreach($emails as $email)
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $email->contact }}</p>
+                @endforeach
                 <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
+                    @foreach($socMeds as $socMed)
+                        <a class="btn btn-outline-light btn-social" href="{{ $socMed->contact }}" target="_blank">
+                            @if($socMed->type == \App\Enums\ContactTypeEnum::FACEBOOK->value)
+                                <i class="fab fa-facebook-f"></i>
+                            @elseif($socMed->type == \App\Enums\ContactTypeEnum::INSTAGRAM->value)
+                                <i class="fab fa-instagram"></i>
+                            @elseif($socMed->type == \App\Enums\ContactTypeEnum::TWITTER->value)
+                                <i class="fab fa-twitter"></i>
+                            @else
+                                <i class="fab fa-youtube"></i>
+                            @endif
+                        </a>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">

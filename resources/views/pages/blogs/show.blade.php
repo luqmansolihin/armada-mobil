@@ -2,12 +2,12 @@
 
 @section('content')
     <!-- Cover Start-->
-    <div class="cover container-fluid d-flex align-items-center justify-content-center mb-5">
-        <img src="{{ $blog->image }}" alt="Cover Image" />
-        <div class="overlay"></div>
-        <div>
-            <h1 class="text-white">{{ $blog->title }}</h1>
-            <p>{{ $blog->created_at->tz('Asia/Jakarta')->format('F d, Y') }}</p>
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url('{{ $blog->image }}');">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center py-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">{{ $blog->title }}</h1>
+                <p class="text-white">{{ $blog->created_at->tz('Asia/Jakarta')->format('F d, Y') }}</p>
+            </div>
         </div>
     </div>
     <!-- Cover End-->

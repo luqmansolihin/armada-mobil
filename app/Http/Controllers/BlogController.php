@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ContactTypeEnum;
 use App\Enums\DayEnum;
 use App\Models\Blog;
 use App\Models\Brochure;
+use App\Models\Contact;
 use App\Models\OperationalHour;
 use App\Models\Profile;
 use Illuminate\View\View;
@@ -41,7 +43,36 @@ class BlogController extends Controller
             END")
             ->get();
 
-        return view('pages.blogs.index', compact('blogs', 'profile', 'brochures', 'operationalHours'));
+        $phoneFaxs = Contact::query()
+            ->where(function ($query) {
+                $query->where('type', ContactTypeEnum::PHONE->value)
+                    ->orWhere('type', ContactTypeEnum::FAX->value);
+            })
+            ->whereNot('type', ContactTypeEnum::EMAIL->value)
+            ->orderByDesc('type')
+            ->get();
+
+        $socMeds = Contact::query()
+            ->whereNot('type', ContactTypeEnum::PHONE->value)
+            ->whereNot('type', ContactTypeEnum::FAX->value)
+            ->whereNot('type', ContactTypeEnum::EMAIL->value)
+            ->orderBy('type')
+            ->get();
+
+        $emails = Contact::query()
+            ->where('type', ContactTypeEnum::EMAIL->value)
+            ->orderBy('contact')
+            ->get();
+
+        return view('pages.blogs.index', compact(
+            'blogs',
+            'profile',
+            'brochures',
+            'operationalHours',
+            'phoneFaxs',
+            'socMeds',
+            'emails')
+        );
     }
 
     public function show(string $slug): View
@@ -76,6 +107,35 @@ class BlogController extends Controller
             END")
             ->get();
 
-        return view('pages.blogs.show', compact('blog', 'profile', 'brochures', 'operationalHours'));
+        $phoneFaxs = Contact::query()
+            ->where(function ($query) {
+                $query->where('type', ContactTypeEnum::PHONE->value)
+                    ->orWhere('type', ContactTypeEnum::FAX->value);
+            })
+            ->whereNot('type', ContactTypeEnum::EMAIL->value)
+            ->orderByDesc('type')
+            ->get();
+
+        $socMeds = Contact::query()
+            ->whereNot('type', ContactTypeEnum::PHONE->value)
+            ->whereNot('type', ContactTypeEnum::FAX->value)
+            ->whereNot('type', ContactTypeEnum::EMAIL->value)
+            ->orderBy('type')
+            ->get();
+
+        $emails = Contact::query()
+            ->where('type', ContactTypeEnum::EMAIL->value)
+            ->orderBy('contact')
+            ->get();
+
+        return view('pages.blogs.show', compact(
+            'blog',
+            'profile',
+            'brochures',
+            'operationalHours',
+            'phoneFaxs',
+            'socMeds',
+            'emails')
+        );
     }
 }
