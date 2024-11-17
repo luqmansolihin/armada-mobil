@@ -61,6 +61,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.after-sales.index') }}"
+                       class="nav-link @if (request()->is('cms/after-sales*')) active @endif">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>After Sale</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.blogs.index') }}"
                         class="nav-link @if (request()->is('cms/blogs*')) active @endif">
                         <i class="nav-icon fas fa-newspaper"></i>

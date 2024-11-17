@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogController as ContentBlogController;
+use App\Http\Controllers\AfterSaleController as ContentAfterSaleController;
+use App\Http\Controllers\CMS\AfterSaleController;
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\BrochureController;
@@ -35,6 +37,11 @@ Route::get('/profile', [ContentProfileController::class, 'index'])->name('profil
 Route::prefix('blogs')->group(function () {
     Route::get('/', [ContentBlogController::class, 'index'])->name('blogs.index');
     Route::get('/{slug}', [ContentBlogController::class, 'show'])->name('blogs.show');
+});
+
+Route::prefix('after-sales')->group(function () {
+    Route::get('/', [ContentAfterSaleController::class, 'index'])->name('after-sales.index');
+    Route::get('/{slug}', [ContentAfterSaleController::class, 'show'])->name('after-sales.show');
 });
 
 Route::prefix('products')->group(function () {
@@ -78,6 +85,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [OperationalHourController::class, 'edit'])->name('cms.operational-hours.edit');
             Route::put('/{id}/update', [OperationalHourController::class, 'update'])->name('cms.operational-hours.update');
             Route::delete('/{id}', [OperationalHourController::class, 'destroy'])->name('cms.operational-hours.delete');
+        });
+
+        Route::prefix('after-sales')->group(function () {
+            Route::get('/', [AfterSaleController::class, 'index'])->name('cms.after-sales.index');
+            Route::get('/create', [AfterSaleController::class, 'create'])->name('cms.after-sales.create');
+            Route::post('/store', [AfterSaleController::class, 'store'])->name('cms.after-sales.store');
+            Route::get('/{id}/edit', [AfterSaleController::class, 'edit'])->name('cms.after-sales.edit');
+            Route::put('/{id}/update', [AfterSaleController::class, 'update'])->name('cms.after-sales.update');
+            Route::delete('/{id}', [AfterSaleController::class, 'destroy'])->name('cms.after-sales.delete');
         });
 
         Route::prefix('blogs')->group(function () {

@@ -12,7 +12,7 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link"><h5>Home</h5></a>
             <a href="{{ route('products.index') }}" class="nav-item nav-link"><h5>Product</h5></a>
-            <a href="#" class="nav-item nav-link"><h5>Service</h5></a>
+            <a href="{{ route('after-sales.index') }}" class="nav-item nav-link"><h5>Service</h5></a>
             <a href="{{ route('blogs.index') }}" class="nav-item nav-link"><h5>News</h5></a>
             <a href="#" class="nav-item nav-link"><h5>Promotions</h5></a>
             <a href="#" class="nav-item nav-link"><h5>Outlet</h5></a>
