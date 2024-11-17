@@ -6,6 +6,28 @@
     --dark: #111111;
 }
 
+@font-face {
+    font-family: 'Isuzu Head';
+    src: url('../font/head/isuzu-head.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Isuzu Body';
+    src: url('../font/body/isuzu-body.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Isuzu Head', sans-serif;
+}
+
+body {
+    font-family: 'Isuzu Body', sans-serif;
+}
+
 .fw-medium {
     font-weight: 600 !important;
 }
@@ -74,7 +96,7 @@
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Isuzu Head", "Font Awesome 5 Free";
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;

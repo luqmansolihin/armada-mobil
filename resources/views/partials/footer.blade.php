@@ -3,7 +3,7 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Alamat</h4>
+                <h4 class="text-light mb-4">ALAMAT</h4>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $profile->address }}</p>
                 @foreach($phoneFaxs as $phoneFax)
                     <p class="mb-2">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Jam Buka</h4>
+                <h4 class="text-light mb-4">JAM BUKA</h4>
                 @foreach ($operationalHours as $operationalHour)
                     <h6 class="text-light">
                         {{ $operationalHour->day_from == $operationalHour->day_to
@@ -50,7 +50,7 @@
                 @endforeach
             </div>
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Brosur</h4>
+                <h4 class="text-light mb-4">BROSUR</h4>
                 @foreach ($brochures as $brochure)
                     <p class="mb-2">
                         <i class="fa fa-folder-open me-3">
@@ -60,7 +60,7 @@
                 @endforeach
             </div>
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Tentang Armada</h4>
+                <h4 class="text-light mb-4">TENTANG ARMADA</h4>
                 <p>{{ $profile->short_description }}</p>
                 <a href="{{ route('profile') }}" class="btn btn-primary py-3 px-5 mt-3">Read More<i
                         class="fa fa-arrow-right ms-3"></i></a>

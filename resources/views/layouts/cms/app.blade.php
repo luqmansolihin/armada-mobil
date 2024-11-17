@@ -7,6 +7,22 @@
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
+        @font-face {
+            font-family: 'Isuzu Head';
+            src: url({{ asset('font/head/isuzu-head.otf') }}) format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Isuzu Body';
+            src: url({{ asset('font/head/isuzu-body.otf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
     @stack('additional-style')
 
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">

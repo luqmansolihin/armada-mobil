@@ -24,7 +24,7 @@
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
                 <div class="text-center">
-                    <h1 class="mb-5">Testimonials!</h1>
+                    <h1 class="mb-5">TESTIMONIALS!</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel position-relative">
                     @foreach ($testimonials as $testimonial)
@@ -48,7 +48,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-5">Our Services</h1>
+                <h1 class="mb-5">OUR SERVICES</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach($services as $service)
@@ -56,7 +56,7 @@
                         <div class="d-flex py-5 px-4">
                             <i class="{{ $service->icon }} fa-3x text-primary flex-shrink-0"></i>
                             <div class="ps-4">
-                                <h5 class="mb-3">{{ strtoupper($service->title) }}</h5>
+                                <h4 class="mb-3">{{ strtoupper($service->title) }}</h4>
                                 <p>{{ $service->description }}</p>
                             </div>
                         </div>

@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="bg-light text-left p-4">
                                     <small>{{ $blog->created_at->tz('Asia/Jakarta')->format('F d, Y') }}</small>
-                                    <h5 class="fw-bold mb-0">{{ $blog->title }}</h5>
+                                    <h4 class="fw-bold mb-0">{{ $blog->title }}</h4>
                                 </div>
                             </div>
                         </div>
