@@ -14,6 +14,7 @@
             <a href="{{ route('products.index') }}" class="nav-item nav-link">Product</a>
             <a href="#" class="nav-item nav-link">Service</a>
             <a href="{{ route('blogs.index') }}" class="nav-item nav-link">News</a>
+            <a href="#" class="nav-item nav-link">Promotions</a>
             <a href="#" class="nav-item nav-link">Outlet</a>
             <a href="#" class="nav-item nav-link">Career</a>
             <a href="{{ route('profile') }}" class="nav-item nav-link">About Us</a>

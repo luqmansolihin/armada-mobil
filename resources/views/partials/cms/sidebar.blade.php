@@ -33,6 +33,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.services.index') }}"
+                       class="nav-link @if (request()->is('cms/services*')) active @endif">
+                        <i class="nav-icon fas fa-hand-holding-usd"></i>
+                        <p>Service</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.contacts.index') }}"
                        class="nav-link @if (request()->is('cms/contacts*')) active @endif">
                         <i class="nav-icon fas fa-address-card"></i>

@@ -10,6 +10,7 @@ use App\Http\Controllers\CMS\LoginController;
 use App\Http\Controllers\CMS\OperationalHourController;
 use App\Http\Controllers\CMS\ProductController;
 use App\Http\Controllers\CMS\ProfileController;
+use App\Http\Controllers\CMS\ServiceController;
 use App\Http\Controllers\CMS\TestimonialController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as ContentProductController;
@@ -122,6 +123,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [ContactController::class, 'edit'])->name('cms.contacts.edit');
             Route::put('/{id}/update', [ContactController::class, 'update'])->name('cms.contacts.update');
             Route::delete('/{id}', [ContactController::class, 'destroy'])->name('cms.contacts.delete');
+        });
+
+        Route::prefix('services')->group(function () {
+            Route::get('/', [ServiceController::class, 'index'])->name('cms.services.index');
+            Route::get('/create', [ServiceController::class, 'create'])->name('cms.services.create');
+            Route::post('/store', [ServiceController::class, 'store'])->name('cms.services.store');
+            Route::get('/{id}/edit', [ServiceController::class, 'edit'])->name('cms.services.edit');
+            Route::put('/{id}/update', [ServiceController::class, 'update'])->name('cms.services.update');
+            Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('cms.services.delete');
         });
     });
 });

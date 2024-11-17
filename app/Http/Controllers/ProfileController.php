@@ -8,6 +8,7 @@ use App\Models\Brochure;
 use App\Models\Contact;
 use App\Models\OperationalHour;
 use App\Models\Profile;
+use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\View\View;
 
@@ -18,6 +19,11 @@ class ProfileController extends Controller
         $profile = Profile::query()
             ->select(['cover', 'address', 'short_description', 'description'])
             ->first();
+
+        $services = Service::query()
+            ->select(['title', 'icon', 'description'])
+            ->orderBy('title')
+            ->get();
 
         $brochures = Brochure::query()
             ->select(['title', 'url'])
@@ -66,6 +72,7 @@ class ProfileController extends Controller
 
         return view('pages.profile', compact(
             'profile',
+            'services',
             'brochures',
             'testimonials',
             'operationalHours',

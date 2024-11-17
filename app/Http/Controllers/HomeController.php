@@ -11,6 +11,7 @@ use App\Models\Contact;
 use App\Models\OperationalHour;
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\View\View;
 
@@ -27,6 +28,11 @@ class HomeController extends Controller
         $profile = Profile::query()
             ->select(['address', 'short_description', 'cover'])
             ->first();
+
+        $services = Service::query()
+            ->select(['title', 'icon', 'description'])
+            ->orderBy('title')
+            ->get();
 
         $blogs = Blog::query()
             ->select(['user_id', 'slug', 'title', 'image', 'content', 'created_at'])
@@ -90,6 +96,7 @@ class HomeController extends Controller
         return view('pages.home', compact(
             'banners',
             'profile',
+            'services',
             'blogs',
             'products',
             'brochures',
