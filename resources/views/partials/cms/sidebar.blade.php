@@ -75,6 +75,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.promotions.index') }}"
+                       class="nav-link @if (request()->is('cms/promotions*')) active @endif">
+                        <i class="nav-icon fas fa-percentage"></i>
+                        <p>Promotion</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.banners.index') }}"
                         class="nav-link @if (request()->is('cms/banners*')) active @endif">
                         <i class="nav-icon fas fa-sliders-h"></i>

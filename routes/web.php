@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController as ContentBlogController;
 use App\Http\Controllers\AfterSaleController as ContentAfterSaleController;
+use App\Http\Controllers\PromotionController as ContentPromotionController;
 use App\Http\Controllers\CMS\AfterSaleController;
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\CMS\LoginController;
 use App\Http\Controllers\CMS\OperationalHourController;
 use App\Http\Controllers\CMS\ProductController;
 use App\Http\Controllers\CMS\ProfileController;
+use App\Http\Controllers\CMS\PromotionController;
 use App\Http\Controllers\CMS\ServiceController;
 use App\Http\Controllers\CMS\TestimonialController;
 use App\Http\Controllers\HomeController;
@@ -42,6 +44,11 @@ Route::prefix('blogs')->group(function () {
 Route::prefix('after-sales')->group(function () {
     Route::get('/', [ContentAfterSaleController::class, 'index'])->name('after-sales.index');
     Route::get('/{slug}', [ContentAfterSaleController::class, 'show'])->name('after-sales.show');
+});
+
+Route::prefix('promotions')->group(function () {
+    Route::get('/', [ContentPromotionController::class, 'index'])->name('promotions.index');
+    Route::get('/{slug}', [ContentPromotionController::class, 'show'])->name('promotions.show');
 });
 
 Route::prefix('products')->group(function () {
@@ -103,6 +110,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [BlogController::class, 'edit'])->name('cms.blogs.edit');
             Route::put('/{id}/update', [BlogController::class, 'update'])->name('cms.blogs.update');
             Route::delete('/{id}', [BlogController::class, 'destroy'])->name('cms.blogs.delete');
+        });
+
+        Route::prefix('promotions')->group(function () {
+            Route::get('/', [PromotionController::class, 'index'])->name('cms.promotions.index');
+            Route::get('/create', [PromotionController::class, 'create'])->name('cms.promotions.create');
+            Route::post('/store', [PromotionController::class, 'store'])->name('cms.promotions.store');
+            Route::get('/{id}/edit', [PromotionController::class, 'edit'])->name('cms.promotions.edit');
+            Route::put('/{id}/update', [PromotionController::class, 'update'])->name('cms.promotions.update');
+            Route::delete('/{id}', [PromotionController::class, 'destroy'])->name('cms.promotions.delete');
         });
 
         Route::prefix('products')->group(function () {
