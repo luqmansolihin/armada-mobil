@@ -15,7 +15,7 @@ class OutletController extends Controller
     public function index(): View
     {
         $profile = Profile::query()
-            ->select(['cover', 'address'])
+            ->select(['cover', 'address', 'short_description'])
             ->first();
 
         $brochures = Brochure::query()
