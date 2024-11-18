@@ -17,7 +17,7 @@
 
         @font-face {
             font-family: 'Isuzu Body';
-            src: url({{ asset('font/head/isuzu-body.otf') }}) format('truetype');
+            src: url({{ asset('font/body/isuzu-body.ttf') }}) format('truetype');
             font-weight: normal;
             font-style: normal;
         }

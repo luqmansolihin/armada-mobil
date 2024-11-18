@@ -110,7 +110,25 @@
 
     <script>
         $(document).ready(function() {
-            $('#description').summernote();
+            $('#description').summernote({
+                fontNames: [
+                    'Arial',
+                    'Arial Black',
+                    'Comic Sans MS',
+                    'Courier New',
+                    'Helvetica',
+                    'Impact',
+                    'Tahoma',
+                    'Times New Roman',
+                    'Verdana',
+                    'Isuzu Head',
+                    'Isuzu Body'
+                ],
+                fontNamesIgnoreCheck: [
+                    'Isuzu Head',
+                    'Isuzu Body'
+                ],
+            });
         });
     </script>
 @endpush
