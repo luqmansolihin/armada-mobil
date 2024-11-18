@@ -10,14 +10,30 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" class="nav-item nav-link"><h5>Home</h5></a>
-            <a href="{{ route('products.index') }}" class="nav-item nav-link"><h5>Product</h5></a>
-            <a href="{{ route('after-sales.index') }}" class="nav-item nav-link"><h5>Service</h5></a>
-            <a href="{{ route('blogs.index') }}" class="nav-item nav-link"><h5>News</h5></a>
-            <a href="{{ route('promotions.index') }}" class="nav-item nav-link"><h5>Promotions</h5></a>
-            <a href="#" class="nav-item nav-link"><h5>Outlet</h5></a>
-            <a href="#" class="nav-item nav-link"><h5>Career</h5></a>
-            <a href="{{ route('profile') }}" class="nav-item nav-link"><h5>About Us</h5></a>
+            <a href="/" class="nav-item nav-link">
+                <h5>Home</h5>
+            </a>
+            <a href="{{ route('products.index') }}" class="nav-item nav-link">
+                <h5>Product</h5>
+            </a>
+            <a href="{{ route('after-sales.index') }}" class="nav-item nav-link">
+                <h5>Service</h5>
+            </a>
+            <a href="{{ route('blogs.index') }}" class="nav-item nav-link">
+                <h5>News</h5>
+            </a>
+            <a href="{{ route('promotions.index') }}" class="nav-item nav-link">
+                <h5>Promotions</h5>
+            </a>
+            <a href="{{ route('outlets') }}" class="nav-item nav-link">
+                <h5>Outlet</h5>
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <h5>Career</h5>
+            </a>
+            <a href="{{ route('profile') }}" class="nav-item nav-link">
+                <h5>About Us</h5>
+            </a>
 
             <!-- Kolom Pencarian di Tengah -->
             <form class="form-inline d-flex align-items-center me-auto" action="#" method="GET">

@@ -17,6 +17,7 @@ use App\Http\Controllers\CMS\PromotionController;
 use App\Http\Controllers\CMS\ServiceController;
 use App\Http\Controllers\CMS\TestimonialController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OutletController as ContentOutletController;
 use App\Http\Controllers\ProductController as ContentProductController;
 use App\Http\Controllers\ProfileController as ContentProfileController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,8 @@ Route::prefix('products')->group(function () {
     Route::get('/', [ContentProductController::class, 'index'])->name('products.index');
     Route::get('/{slug}', [ContentProductController::class, 'show'])->name('products.show');
 });
+
+Route::get('/outlets', [ContentOutletController::class, 'index'])->name('outlets');
 
 Route::prefix('cms')->group(function () {
     Route::get('/', function () {
