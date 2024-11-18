@@ -82,6 +82,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cms.outlets.index') }}"
+                       class="nav-link @if (request()->is('cms/outlets*')) active @endif">
+                        <i class="nav-icon fas fa-store-alt"></i>
+                        <p>Outlet</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('cms.banners.index') }}"
                         class="nav-link @if (request()->is('cms/banners*')) active @endif">
                         <i class="nav-icon fas fa-sliders-h"></i>
@@ -102,29 +109,6 @@
                         <p>Brochure</p>
                     </a>
                 </li>
-                {{--                <li class="nav-item @if (request()->is('medicines*') or request()->is('patients*')) menu-open @endif"> --}}
-                {{--                    <a href="#" class="nav-link @if (request()->is('medicines*') or request()->is('patients*')) active @endif"> --}}
-                {{--                        <i class="nav-icon fas fa-database"></i> --}}
-                {{--                        <p> --}}
-                {{--                            Master --}}
-                {{--                            <i class="right fas fa-angle-left"></i> --}}
-                {{--                        </p> --}}
-                {{--                    </a> --}}
-                {{--                    <ul class="nav nav-treeview"> --}}
-                {{--                        <li class="nav-item"> --}}
-                {{--                            <a href="{{ route('medicines.index') }}" class="nav-link @if (request()->is('medicines*')) active @endif"> --}}
-                {{--                                <i class="far fa-circle nav-icon"></i> --}}
-                {{--                                <p>Medicine</p> --}}
-                {{--                            </a> --}}
-                {{--                        </li> --}}
-                {{--                        <li class="nav-item"> --}}
-                {{--                            <a href="{{ route('patients.index') }}" class="nav-link @if (request()->is('patients*')) active @endif"> --}}
-                {{--                                <i class="far fa-circle nav-icon"></i> --}}
-                {{--                                <p>Patient</p> --}}
-                {{--                            </a> --}}
-                {{--                        </li> --}}
-                {{--                    </ul> --}}
-                {{--                </li> --}}
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

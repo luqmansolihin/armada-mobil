@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController as ContentBlogController;
 use App\Http\Controllers\AfterSaleController as ContentAfterSaleController;
+use App\Http\Controllers\CMS\OutletController;
 use App\Http\Controllers\PromotionController as ContentPromotionController;
 use App\Http\Controllers\CMS\AfterSaleController;
 use App\Http\Controllers\CMS\BannerController;
@@ -167,6 +168,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [ServiceController::class, 'edit'])->name('cms.services.edit');
             Route::put('/{id}/update', [ServiceController::class, 'update'])->name('cms.services.update');
             Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('cms.services.delete');
+        });
+
+        Route::prefix('outlets')->group(function () {
+            Route::get('/', [OutletController::class, 'index'])->name('cms.outlets.index');
+            Route::get('/create', [OutletController::class, 'create'])->name('cms.outlets.create');
+            Route::post('/store', [OutletController::class, 'store'])->name('cms.outlets.store');
+            Route::get('/{id}/edit', [OutletController::class, 'edit'])->name('cms.outlets.edit');
+            Route::put('/{id}/update', [OutletController::class, 'update'])->name('cms.outlets.update');
+            Route::delete('/{id}', [OutletController::class, 'destroy'])->name('cms.outlets.delete');
         });
     });
 });
