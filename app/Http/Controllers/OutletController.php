@@ -7,6 +7,7 @@ use App\Enums\DayEnum;
 use App\Models\Brochure;
 use App\Models\Contact;
 use App\Models\OperationalHour;
+use App\Models\Outlet;
 use App\Models\Profile;
 use Illuminate\View\View;
 
@@ -14,6 +15,11 @@ class OutletController extends Controller
 {
     public function index(): View
     {
+        $outlets = Outlet::query()
+            ->with(['outletHasOperationalHours', 'outletHasServices'])
+            ->orderBy('name')
+            ->get();
+
         $profile = Profile::query()
             ->select(['cover', 'address', 'short_description'])
             ->first();
@@ -59,6 +65,7 @@ class OutletController extends Controller
             ->get();
 
         return view('pages.outlet', compact(
+            'outlets',
             'profile',
             'brochures',
             'operationalHours',

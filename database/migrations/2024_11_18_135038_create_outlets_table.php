@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('fax')->nullable();
             $table->string('email');
             $table->string('url_address');
-            $table->string('url_embed_address');
+            $table->text('url_embed_address');
             $table->timestamps();
             $table->softDeletes();
         });

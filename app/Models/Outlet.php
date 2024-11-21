@@ -12,12 +12,12 @@ class Outlet extends Model
 
     protected $guarded = ['id'];
 
-    public function OutletHasOperationalHours(): HasMany
+    public function outletHasOperationalHours(): HasMany
     {
         return $this->hasMany(OutletHasOperationalHour::class, 'outlet_id', 'id');
     }
 
-    public function OutletHasServices(): HasMany
+    public function outletHasServices(): HasMany
     {
         return $this->hasMany(OutletHasService::class, 'outlet_id', 'id');
     }

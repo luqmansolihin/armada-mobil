@@ -14,8 +14,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Outlets | Create</h3>
                 </div>
-
-                <form class="form-horizontal" action="{{ route('cms.operational-hours.store') }}" method="POST">
+                <form class="form-horizontal" action="{{ route('cms.outlets.store') }}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
@@ -88,7 +87,7 @@
                                 <textarea name="url_embed_address" class="form-control @error('url_embed_address') is-invalid @enderror"
                                     id="url_embed_address" placeholder="URL Embed Address" rows="2" required>{{ old('url_embed_address') }}</textarea>
                                 @error('url_embed_address')
-                                    `<span class="error invalid-feedback">{{ $message }}</span>
+                                    <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
@@ -97,86 +96,91 @@
                             <div class="col-sm-10">
                                 @foreach ($services as $service)
                                     <div class="form-check">
-                                        <input
-                                            class="form-check-input @error('outlets.[$loop->index][service]') is-invalid @enderror"
-                                            name="outlets[{{ $loop->index }}][service]" type="checkbox"
-                                            id="{{ 'checkBox' . $loop->index }}" value="{{ $service->id }}"
-                                            @checked(old('outlets.[$loop->index].[service]') == $service->id)>
+                                        <input class="form-check-input @error('service_id') is-invalid @enderror"
+                                            name="service_id[]" type="checkbox" id="{{ 'checkBox' . $loop->index }}"
+                                            value="{{ $service->id }}" @checked(in_array($service->id, old('service_id', [])))>
                                         <label class="form-check-label" for="{{ 'checkBox' . $loop->index }}">
                                             {{ $service->title }}
                                         </label>
-                                        @error('outlets.[$loop->index][service]')
-                                            <span class="error invalid-feedback">{{ $message }}</span>
-                                        @enderror
                                     </div>
                                 @endforeach
+                                @error('service_id')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </fieldset>
 
-                        <div class="form-group row">
-                            <label for="day_from0" class="col-sm-2 col-form-label">Day from</label>
-                            <div class="col-sm-4">
-                                <select name="outlets[0][day_from]"
-                                    class="form-control custom_select @error('outlets[0][day_from]') is-invalid @enderror"
-                                    id="day_from0" placeholder="Choose Day" required>
-                                    @foreach (App\Enums\DayEnum::cases() as $day)
-                                        <option value="{{ $day->value }}" @selected($day->value == old('outlets[0][day_from]'))>
-                                            {{ strtoupper($day->value) }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('outlets[0][day_from]')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
-                            </div>
+                        <div class="form_field_outer">
+                            <div class="form_field_outer_row">
+                                <div class="form-group row">
+                                    <label for="day_from_0" class="col-sm-2 col-form-label">Day from</label>
+                                    <div class="col-sm-4">
+                                        <select name="outlets[0][day_from]"
+                                            class="form-control custom_select @error('outlets.0.day_from') is-invalid @enderror"
+                                            id="day_from_0" placeholder="Choose Day" required>
+                                            @foreach (App\Enums\DayEnum::cases() as $day)
+                                                <option value="{{ $day->value }}" @selected($day->value == (old('outlets') ? old('outlets')[0]['day_from'] : ''))>
+                                                    {{ strtoupper($day->value) }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('outlets.0.day_from')
+                                            <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
 
-                            <label for="day_to0" class="col-sm-2 col-form-label">Day to</label>
-                            <div class="col-sm-4">
-                                <select name="outlets[0][day_to]"
-                                    class="form-control custom_select @error('outlets[0][day_to]') is-invalid @enderror"
-                                    id="day_to0" placeholder="Choose Day" required>
-                                    @foreach (App\Enums\DayEnum::cases() as $day)
-                                        <option value="{{ $day->value }}" @selected($day->value == old('outlets[0][day_to]'))>
-                                            {{ strtoupper($day->value) }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('outlets[0][day_to]')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="open_time0" class="col-sm-2 col-form-label">Open Time</label>
-                            <div class="col-sm-4">
-                                <input type="text" id="open_time0" name="outlets[0][open_time]"
-                                    class="form-control datetimepicker-input @error('outlets[0][open_time]') is-invalid @enderror"
-                                    value="{{ old('outlets[0][open_time]') }}" data-target="#open_time0"
-                                    data-toggle="datetimepicker" autocomplete="off" />
-                                @error('outlets[0][open_time]')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
-                            </div>
+                                    <label for="day_to_0" class="col-sm-2 col-form-label">Day to</label>
+                                    <div class="col-sm-4">
+                                        <select name="outlets[0][day_to]"
+                                            class="form-control custom_select @error('outlets.0.day_to') is-invalid @enderror"
+                                            id="day_to_0" placeholder="Choose Day" required>
+                                            @foreach (App\Enums\DayEnum::cases() as $day)
+                                                <option value="{{ $day->value }}" @selected($day->value == (old('outlets') ? old('outlets')[0]['day_to'] : ''))>
+                                                    {{ strtoupper($day->value) }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('outlets.0.day_to')
+                                            <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="open_time_0" class="col-sm-2 col-form-label">Open Time</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="open_time_0" name="outlets[0][open_time]"
+                                            class="form-control datetimepicker-input @error('outlets.0.open_time') is-invalid @enderror"
+                                            value="{{ old('outlets') ? old('outlets')[0]['open_time'] : '' }}"
+                                            data-target="#open_time_0" data-toggle="datetimepicker" autocomplete="off" />
+                                        @error('outlets.0.open_time')
+                                            <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
 
-                            <label for="close_time0" class="col-sm-2 col-form-label">Close Time</label>
-                            <div class="col-sm-4">
-                                <input type="text" id="close_time0" name="outlets[0][close_time]"
-                                    class="form-control datetimepicker-input @error('outlets[0][close_time]') is-invalid @enderror"
-                                    value="{{ old('outlets[0][close_time]') }}" data-target="#close_time0"
-                                    data-toggle="datetimepicker" autocomplete="off" />
-                                @error('outlets[0][close_time]')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
-                            </div>
+                                    <label for="close_time_0" class="col-sm-2 col-form-label">Close Time</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="close_time_0" name="outlets[0][close_time]"
+                                            class="form-control datetimepicker-input @error('outlets.0.close_time') is-invalid @enderror"
+                                            value="{{ old('outlets') ? old('outlets')[0]['close_time'] : '' }}"
+                                            data-target="#close_time_0" data-toggle="datetimepicker"
+                                            autocomplete="off" />
+                                        @error('outlets.0.close_time')
+                                            <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
 
-                            <div class="col-sm-2 mt-3">
-                                <button type="button" class="btn btn-danger btn-remove">Remove</button>
+                                    <div class="col-sm-2 mt-3">
+                                        <button type="button"
+                                            class="btn btn-danger btn-remove remove_node_btn_form_field"
+                                            disabled>Remove</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-2">
-                                <button type="button" class="btn btn-success" id="add-operational-hour">Add Operational
+                                <button type="button" class="btn btn-success add_new_form_field_btn">Add Operational
                                     Hour</button>
                             </div>
                         </div>
@@ -184,7 +188,7 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{ route('cms.operational-hours.index') }}" class="btn btn-warning">Cancel</a>
+                        <a href="{{ route('cms.outlets.index') }}" class="btn btn-warning">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -198,16 +202,226 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js">
     </script>
     <script>
-        $(function() {
-            $('#open_time0').datetimepicker({
+        $(document).ready(function() {
+            let body = $('body')
+            let form_field_outer = $('.form_field_outer')
+
+            $('#open_time_0').datetimepicker({
                 format: 'HH:mm',
                 stepping: 15
             })
 
-            $('#close_time0').datetimepicker({
+            $('#close_time_0').datetimepicker({
                 format: 'HH:mm',
                 stepping: 15
             })
+
+            body.on('click', '.add_new_form_field_btn', function() {
+                let index = form_field_outer.find('.form_field_outer_row').length
+
+                form_field_outer.append(`
+                    <div class="form_field_outer_row">
+                        <div class="form-group row">
+                            <label for="day_from_${index}" class="col-sm-2 col-form-label">Day from</label>
+                            <div class="col-sm-4">
+                                <select name="outlets[${index}][day_from]"
+                                    class="form-control custom_select"
+                                    id="day_from_${index}" placeholder="Choose Day" required>
+                                    @foreach (App\Enums\DayEnum::cases() as $day)
+                                        <option value="{{ $day->value }}">
+                                            {{ strtoupper($day->value) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <label for="day_to_${index}" class="col-sm-2 col-form-label">Day to</label>
+                            <div class="col-sm-4">
+                                <select name="outlets[${index}][day_to]"
+                                    class="form-control custom_select"
+                                    id="day_to_${index}" placeholder="Choose Day" required>
+                                    @foreach (App\Enums\DayEnum::cases() as $day)
+                                        <option value="{{ $day->value }}">
+                                            {{ strtoupper($day->value) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="open_time_${index}" class="col-sm-2 col-form-label">Open Time</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="open_time_${index}" name="outlets[${index}][open_time]"
+                                    class="form-control datetimepicker-input" data-target="#open_time_${index}"
+                                    data-toggle="datetimepicker" autocomplete="off" />
+                            </div>
+
+                            <label for="close_time_${index}" class="col-sm-2 col-form-label">Close Time</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="close_time_${index}" name="outlets[${index}][close_time]"
+                                    class="form-control datetimepicker-input" data-target="#close_time_${index}"
+                                    data-toggle="datetimepicker" autocomplete="off" />
+                            </div>
+
+                            <div class="col-sm-2 mt-3">
+                                <button type="button"
+                                    class="btn btn-danger btn-remove remove_node_btn_form_field" disabled>Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `)
+
+                form_field_outer.find('.remove_node_btn_form_field:not(:first)').prop('disabled', false)
+                form_field_outer.find('.remove_node_btn_form_field').first().prop('disabled', true)
+
+                $(`#open_time_${index}`).datetimepicker({
+                    format: 'HH:mm',
+                    stepping: 15
+                });
+
+                $(`#close_time_${index}`).datetimepicker({
+                    format: 'HH:mm',
+                    stepping: 15
+                });
+            })
+
+            body.on('click', '.remove_node_btn_form_field', function() {
+                $(this).closest('.form_field_outer_row').remove()
+
+                updateIndexes()
+            })
+
+            function updateIndexes() {
+                $('.form_field_outer .form_field_outer_row').each(function(index) {
+                    // Update ID dan NAME untuk day_from
+                    $(this).find('select[name^="outlets["][name*="[day_from]"]').attr({
+                        id: `day_from_${index}`,
+                        name: `outlets[${index}][day_from]`
+                    });
+
+                    // Update ID dan NAME untuk day_to
+                    $(this).find('select[name^="outlets["][name*="[day_to]"]').attr({
+                        id: `day_to_${index}`,
+                        name: `outlets[${index}][day_to]`
+                    });
+
+                    // Update ID dan NAME untuk open_time
+                    $(this).find('input[name^="outlets["][name*="[open_time]"]').attr({
+                        id: `open_time_${index}`,
+                        name: `outlets[${index}][open_time]`,
+                        'data-target': `#open_time_${index}`
+                    });
+
+                    // Update ID dan NAME untuk close_time
+                    $(this).find('input[name^="outlets["][name*="[close_time]"]').attr({
+                        id: `close_time_${index}`,
+                        name: `outlets[${index}][close_time]`,
+                        'data-target': `#close_time_${index}`
+                    });
+
+                    // Update label (optional, if you have labels targeting inputs by ID)
+                    $(this).find('label[for^="day_from"]').attr('for', `day_from_${index}`)
+                    $(this).find('label[for^="day_to"]').attr('for', `day_to_${index}`)
+                    $(this).find('label[for^="open_time"]').attr('for', `open_time_${index}`)
+                    $(this).find('label[for^="close_time"]').attr('for', `close_time_${index}`)
+
+                    $(`#open_time_${index}`).datetimepicker({
+                        format: 'HH:mm',
+                        stepping: 15
+                    });
+
+                    $(`#close_time_${index}`).datetimepicker({
+                        format: 'HH:mm',
+                        stepping: 15
+                    });
+                });
+            }
+
+            // Initialize with existing fields if any
+            @foreach (old('transaction_patient', []) as $index => $transaction)
+                @if ($loop->iteration != 1)
+                    form_field_outer.append(`
+                        <div class="form_field_outer_row">
+                            <div class="form-group row">
+                                <label for="day_from_{{ $loop->index }}" class="col-sm-2 col-form-label">Day from</label>
+                                <div class="col-sm-4">
+                                    <select name="outlets[{{ $loop->index }}][day_from]"
+                                        class="form-control custom_select @error('outlets.' . $index . '.day_from') is-invalid @enderror"
+                                        id="day_from_{{ $loop->index }}" placeholder="Choose Day" required>
+                                        @foreach (App\Enums\DayEnum::cases() as $day)
+                                            <option value="{{ $day->value }}" @selected($day->value == old('outlets')[$index]['day_from'])>
+                                                {{ strtoupper($day->value) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('outlets.' . $index . '.day_from')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <label for="day_to_{{ $loop->index }}" class="col-sm-2 col-form-label">Day to</label>
+                                <div class="col-sm-4">
+                                    <select name="outlets[{{ $loop->index }}][day_to]"
+                                        class="form-control custom_select @error('outlets.' . $index . '.day_to') is-invalid @enderror"
+                                        id="day_to_{{ $loop->index }}" placeholder="Choose Day" required>
+                                        @foreach (App\Enums\DayEnum::cases() as $day)
+                                            <option value="{{ $day->value }}" @selected($day->value == old('outlets')[$index]['day_to'])>
+                                                {{ strtoupper($day->value) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('outlets.' . $index . '.day_to')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="open_time_{{ $loop->index }}" class="col-sm-2 col-form-label">Open Time</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="open_time_{{ $loop->index }}" name="outlets[{{ $loop->index }}][open_time]"
+                                        class="form-control datetimepicker-input @error('outlets.' . $index . '.open_time') is-invalid @enderror"
+                                        value="{{ old('outlets')[$index]['open_time'] }}"
+                                        data-target="#open_time_{{ $loop->index }}" data-toggle="datetimepicker" autocomplete="off" />
+                                    @error('outlets.' . $index . '.open_time')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <label for="close_time_{{ $loop->index }}" class="col-sm-2 col-form-label">Close Time</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="close_time_{{ $loop->index }}" name="outlets[{{ $loop->index }}][close_time]"
+                                        class="form-control datetimepicker-input @error('outlets.' . $index . '.close_time') is-invalid @enderror"
+                                        value="{{ old('outlets')[$index]['close_time'] }}"
+                                        data-target="#close_time_{{ $loop->index }}" data-toggle="datetimepicker"
+                                        autocomplete="off" />
+                                    @error('outlets.' . $index . '.close_time')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-sm-2 mt-3">
+                                    <button type="button"
+                                        class="btn btn-danger btn-remove remove_node_btn_form_field"
+                                        disabled>Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+
+                    form_field_outer.find('.remove_node_btn_form_field:not(:first)').prop('disabled', false)
+                    form_field_outer.find('.remove_node_btn_form_field').first().prop('disabled', true)
+
+                    $(`#open_time_{{ $loop->index }}`).datetimepicker({
+                        format: 'HH:mm',
+                        stepping: 15
+                    });
+
+                    $(`#close_time_{{ $loop->index }}`).datetimepicker({
+                        format: 'HH:mm',
+                        stepping: 15
+                    });
+                @endif
+            @endforeach
         })
     </script>
 @endpush
