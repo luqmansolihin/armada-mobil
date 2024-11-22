@@ -28,7 +28,7 @@
             <a href="{{ route('outlets') }}" class="nav-item nav-link">
                 <h5>Outlet</h5>
             </a>
-            <a href="#" class="nav-item nav-link">
+            <a href="{{ route('careers.index') }}" class="nav-item nav-link">
                 <h5>Career</h5>
             </a>
             <a href="{{ route('profile') }}" class="nav-item nav-link">

@@ -1,0 +1,1493 @@
+[
+    {
+        "kota": "ACEH BARAT"
+    },
+    {
+        "kota": "ACEH BARAT DAYA"
+    },
+    {
+        "kota": "ACEH BESAR"
+    },
+    {
+        "kota": "ACEH JAYA"
+    },
+    {
+        "kota": "ACEH SELATAN"
+    },
+    {
+        "kota": "ACEH SINGKIL"
+    },
+    {
+        "kota": "ACEH TAMIANG"
+    },
+    {
+        "kota": "ACEH TENGAH"
+    },
+    {
+        "kota": "ACEH TENGGARA"
+    },
+    {
+        "kota": "ACEH TIMUR"
+    },
+    {
+        "kota": "ACEH UTARA"
+    },
+    {
+        "kota": "AGAM"
+    },
+    {
+        "kota": "ALOR"
+    },
+    {
+        "kota": "ASAHAN"
+    },
+    {
+        "kota": "ASMAT"
+    },
+    {
+        "kota": "BADUNG"
+    },
+    {
+        "kota": "BALANGAN"
+    },
+    {
+        "kota": "BANDUNG"
+    },
+    {
+        "kota": "BANDUNG BARAT"
+    },
+    {
+        "kota": "BANGGAI"
+    },
+    {
+        "kota": "BANGGAI KEPULAUAN"
+    },
+    {
+        "kota": "BANGKA"
+    },
+    {
+        "kota": "BANGKA BARAT"
+    },
+    {
+        "kota": "BANGKA SELATAN"
+    },
+    {
+        "kota": "BANGKA TENGAH"
+    },
+    {
+        "kota": "BANGKALAN"
+    },
+    {
+        "kota": "BANGLI"
+    },
+    {
+        "kota": "BANJAR"
+    },
+    {
+        "kota": "BANJARNEGARA"
+    },
+    {
+        "kota": "BANTAENG"
+    },
+    {
+        "kota": "BANTUL"
+    },
+    {
+        "kota": "BANYUASIN"
+    },
+    {
+        "kota": "BANYUMAS"
+    },
+    {
+        "kota": "BANYUWANGI"
+    },
+    {
+        "kota": "BARITO KUALA"
+    },
+    {
+        "kota": "BARITO SELATAN"
+    },
+    {
+        "kota": "BARITO TIMUR"
+    },
+    {
+        "kota": "BARITO UTARA"
+    },
+    {
+        "kota": "BARRU"
+    },
+    {
+        "kota": "BATANG"
+    },
+    {
+        "kota": "BATANGHARI"
+    },
+    {
+        "kota": "BATU BARA"
+    },
+    {
+        "kota": "BEKASI"
+    },
+    {
+        "kota": "BELITUNG"
+    },
+    {
+        "kota": "BELITUNG TIMUR"
+    },
+    {
+        "kota": "BELU"
+    },
+    {
+        "kota": "BENER MERIAH"
+    },
+    {
+        "kota": "BENGKALIS"
+    },
+    {
+        "kota": "BENGKAYANG"
+    },
+    {
+        "kota": "BENGKULU SELATAN"
+    },
+    {
+        "kota": "BENGKULU TENGAH"
+    },
+    {
+        "kota": "BENGKULU UTARA"
+    },
+    {
+        "kota": "BERAU"
+    },
+    {
+        "kota": "BIAK NUMFOR"
+    },
+    {
+        "kota": "BIMA"
+    },
+    {
+        "kota": "BINTAN"
+    },
+    {
+        "kota": "BIREUEN"
+    },
+    {
+        "kota": "BLITAR"
+    },
+    {
+        "kota": "BLORA"
+    },
+    {
+        "kota": "BOALEMO"
+    },
+    {
+        "kota": "BOGOR"
+    },
+    {
+        "kota": "BOJONEGORO"
+    },
+    {
+        "kota": "BOLAANG MONGONDOW"
+    },
+    {
+        "kota": "BOLAANG MONGONDOW SELATAN"
+    },
+    {
+        "kota": "BOLAANG MONGONDOW TIMUR"
+    },
+    {
+        "kota": "BOLAANG MONGONDOW UTARA"
+    },
+    {
+        "kota": "BOMBANA"
+    },
+    {
+        "kota": "BONDOWOSO"
+    },
+    {
+        "kota": "BONE"
+    },
+    {
+        "kota": "BONE BOLANGO"
+    },
+    {
+        "kota": "BOVEN DIGOEL"
+    },
+    {
+        "kota": "BOYOLALI"
+    },
+    {
+        "kota": "BREBES"
+    },
+    {
+        "kota": "BULELENG"
+    },
+    {
+        "kota": "BULUKUMBA"
+    },
+    {
+        "kota": "BULUNGAN"
+    },
+    {
+        "kota": "BUNGO"
+    },
+    {
+        "kota": "BUOL"
+    },
+    {
+        "kota": "BURU"
+    },
+    {
+        "kota": "BURU SELATAN"
+    },
+    {
+        "kota": "BUTON"
+    },
+    {
+        "kota": "BUTON UTARA"
+    },
+    {
+        "kota": "CIAMIS"
+    },
+    {
+        "kota": "CIANJUR"
+    },
+    {
+        "kota": "CILACAP"
+    },
+    {
+        "kota": "CIREBON"
+    },
+    {
+        "kota": "DAIRI"
+    },
+    {
+        "kota": "DEIYAI"
+    },
+    {
+        "kota": "DELI SERDANG"
+    },
+    {
+        "kota": "DEMAK"
+    },
+    {
+        "kota": "DHARMASRAYA"
+    },
+    {
+        "kota": "DOGIYAI"
+    },
+    {
+        "kota": "DOMPU"
+    },
+    {
+        "kota": "DONGGALA"
+    },
+    {
+        "kota": "EMPAT LAWANG"
+    },
+    {
+        "kota": "ENDE"
+    },
+    {
+        "kota": "ENREKANG"
+    },
+    {
+        "kota": "FAKFAK"
+    },
+    {
+        "kota": "FLORES TIMUR"
+    },
+    {
+        "kota": "GARUT"
+    },
+    {
+        "kota": "GAYO LUES"
+    },
+    {
+        "kota": "GIANYAR"
+    },
+    {
+        "kota": "GORONTALO"
+    },
+    {
+        "kota": "GORONTALO UTARA"
+    },
+    {
+        "kota": "GOWA"
+    },
+    {
+        "kota": "GRESIK"
+    },
+    {
+        "kota": "GROBOGAN"
+    },
+    {
+        "kota": "GUNUNG MAS"
+    },
+    {
+        "kota": "GUNUNGKIDUL"
+    },
+    {
+        "kota": "HALMAHERA BARAT"
+    },
+    {
+        "kota": "HALMAHERA SELATAN"
+    },
+    {
+        "kota": "HALMAHERA TENGAH"
+    },
+    {
+        "kota": "HALMAHERA TIMUR"
+    },
+    {
+        "kota": "HALMAHERA UTARA"
+    },
+    {
+        "kota": "HULU SUNGAI SELATAN"
+    },
+    {
+        "kota": "HULU SUNGAI TENGAH"
+    },
+    {
+        "kota": "HULU SUNGAI UTARA"
+    },
+    {
+        "kota": "HUMBANG HASUNDUTAN"
+    },
+    {
+        "kota": "INDRAGIRI HILIR"
+    },
+    {
+        "kota": "INDRAGIRI HULU"
+    },
+    {
+        "kota": "INDRAMAYU"
+    },
+    {
+        "kota": "INTAN JAYA"
+    },
+    {
+        "kota": "JAKARTA BARAT"
+    },
+    {
+        "kota": "JAKARTA PUSAT"
+    },
+    {
+        "kota": "JAKARTA SELATAN"
+    },
+    {
+        "kota": "JAKARTA TIMUR"
+    },
+    {
+        "kota": "JAKARTA UTARA"
+    },
+    {
+        "kota": "JAYAPURA"
+    },
+    {
+        "kota": "JAYAWIJAYA"
+    },
+    {
+        "kota": "JEMBER"
+    },
+    {
+        "kota": "JEMBRANA"
+    },
+    {
+        "kota": "JENEPONTO"
+    },
+    {
+        "kota": "JEPARA"
+    },
+    {
+        "kota": "JOMBANG"
+    },
+    {
+        "kota": "KAIMANA"
+    },
+    {
+        "kota": "KAMPAR"
+    },
+    {
+        "kota": "KAPUAS"
+    },
+    {
+        "kota": "KAPUAS HULU"
+    },
+    {
+        "kota": "KARANGANYAR"
+    },
+    {
+        "kota": "KARANGASEM"
+    },
+    {
+        "kota": "KARAWANG"
+    },
+    {
+        "kota": "KARIMUN"
+    },
+    {
+        "kota": "KARO"
+    },
+    {
+        "kota": "KATINGAN"
+    },
+    {
+        "kota": "KAUR"
+    },
+    {
+        "kota": "KAYONG UTARA"
+    },
+    {
+        "kota": "KEBUMEN"
+    },
+    {
+        "kota": "KEDIRI"
+    },
+    {
+        "kota": "KEEROM"
+    },
+    {
+        "kota": "KENDAL"
+    },
+    {
+        "kota": "KEP. SIAU TAGULANDANG BIARO"
+    },
+    {
+        "kota": "KEPAHIANG"
+    },
+    {
+        "kota": "KEPULAUAN ANAMBAS"
+    },
+    {
+        "kota": "KEPULAUAN ARU"
+    },
+    {
+        "kota": "KEPULAUAN MENTAWAI"
+    },
+    {
+        "kota": "KEPULAUAN MERANTI"
+    },
+    {
+        "kota": "KEPULAUAN SANGIHE"
+    },
+    {
+        "kota": "KEPULAUAN SELAYAR"
+    },
+    {
+        "kota": "KEPULAUAN SERIBU"
+    },
+    {
+        "kota": "KEPULAUAN SULA"
+    },
+    {
+        "kota": "KEPULAUAN TALAUD"
+    },
+    {
+        "kota": "KEPULAUAN YAPEN"
+    },
+    {
+        "kota": "KERINCI"
+    },
+    {
+        "kota": "KETAPANG"
+    },
+    {
+        "kota": "KLATEN"
+    },
+    {
+        "kota": "KLUNGKUNG"
+    },
+    {
+        "kota": "KOLAKA"
+    },
+    {
+        "kota": "KOLAKA UTARA"
+    },
+    {
+        "kota": "KONAWE"
+    },
+    {
+        "kota": "KONAWE SELATAN"
+    },
+    {
+        "kota": "KONAWE UTARA"
+    },
+    {
+        "kota": "KOTA AMBON"
+    },
+    {
+        "kota": "KOTA BALIKPAPAN"
+    },
+    {
+        "kota": "KOTA BANDA ACEH"
+    },
+    {
+        "kota": "KOTA BANDAR LAMPUNG"
+    },
+    {
+        "kota": "KOTA BANDUNG"
+    },
+    {
+        "kota": "KOTA BANJAR"
+    },
+    {
+        "kota": "KOTA BANJARBARU"
+    },
+    {
+        "kota": "KOTA BANJARMASIN"
+    },
+    {
+        "kota": "KOTA BATAM"
+    },
+    {
+        "kota": "KOTA BATU"
+    },
+    {
+        "kota": "KOTA BAU BAU"
+    },
+    {
+        "kota": "KOTA BEKASI"
+    },
+    {
+        "kota": "KOTA BENGKULU"
+    },
+    {
+        "kota": "KOTA BIMA"
+    },
+    {
+        "kota": "KOTA BINJAI"
+    },
+    {
+        "kota": "KOTA BITUNG"
+    },
+    {
+        "kota": "KOTA BLITAR"
+    },
+    {
+        "kota": "KOTA BOGOR"
+    },
+    {
+        "kota": "KOTA BONTANG"
+    },
+    {
+        "kota": "KOTA BUKITTINGGI"
+    },
+    {
+        "kota": "KOTA CILEGON"
+    },
+    {
+        "kota": "KOTA CIMAHI"
+    },
+    {
+        "kota": "KOTA CIREBON"
+    },
+    {
+        "kota": "KOTA DENPASAR"
+    },
+    {
+        "kota": "KOTA DEPOK"
+    },
+    {
+        "kota": "KOTA DUMAI"
+    },
+    {
+        "kota": "KOTA GORONTALO"
+    },
+    {
+        "kota": "KOTA GUNUNGSITOLI"
+    },
+    {
+        "kota": "KOTA JAMBI"
+    },
+    {
+        "kota": "KOTA JAYAPURA"
+    },
+    {
+        "kota": "KOTA KEDIRI"
+    },
+    {
+        "kota": "KOTA KENDARI"
+    },
+    {
+        "kota": "KOTA KOTAMOBAGU"
+    },
+    {
+        "kota": "KOTA KUPANG"
+    },
+    {
+        "kota": "KOTA LANGSA"
+    },
+    {
+        "kota": "KOTA LHOKSEUMAWE"
+    },
+    {
+        "kota": "KOTA LUBUKLINGGAU"
+    },
+    {
+        "kota": "KOTA MADIUN"
+    },
+    {
+        "kota": "KOTA MAGELANG"
+    },
+    {
+        "kota": "KOTA MAKASSAR"
+    },
+    {
+        "kota": "KOTA MALANG"
+    },
+    {
+        "kota": "KOTA MANADO"
+    },
+    {
+        "kota": "KOTA MATARAM"
+    },
+    {
+        "kota": "KOTA MEDAN"
+    },
+    {
+        "kota": "KOTA METRO"
+    },
+    {
+        "kota": "KOTA MOJOKERTO"
+    },
+    {
+        "kota": "KOTA PADANG"
+    },
+    {
+        "kota": "KOTA PADANG PANJANG"
+    },
+    {
+        "kota": "KOTA PADANG SIDIMPUAN"
+    },
+    {
+        "kota": "KOTA PAGAR ALAM"
+    },
+    {
+        "kota": "KOTA PALANGKARAYA"
+    },
+    {
+        "kota": "KOTA PALEMBANG"
+    },
+    {
+        "kota": "KOTA PALOPO"
+    },
+    {
+        "kota": "KOTA PALU"
+    },
+    {
+        "kota": "KOTA PANGKALPINANG"
+    },
+    {
+        "kota": "KOTA PARE PARE"
+    },
+    {
+        "kota": "KOTA PARIAMAN"
+    },
+    {
+        "kota": "KOTA PASURUAN"
+    },
+    {
+        "kota": "KOTA PAYAKUMBUH"
+    },
+    {
+        "kota": "KOTA PEKALONGAN"
+    },
+    {
+        "kota": "KOTA PEKANBARU"
+    },
+    {
+        "kota": "KOTA PEMATANGSIANTAR"
+    },
+    {
+        "kota": "KOTA PONTIANAK"
+    },
+    {
+        "kota": "KOTA PRABUMULIH"
+    },
+    {
+        "kota": "KOTA PROBOLINGGO"
+    },
+    {
+        "kota": "KOTA SABANG"
+    },
+    {
+        "kota": "KOTA SALATIGA"
+    },
+    {
+        "kota": "KOTA SAMARINDA"
+    },
+    {
+        "kota": "KOTA SAWAHLUNTO"
+    },
+    {
+        "kota": "KOTA SEMARANG"
+    },
+    {
+        "kota": "KOTA SERANG"
+    },
+    {
+        "kota": "KOTA SIBOLGA"
+    },
+    {
+        "kota": "KOTA SINGKAWANG"
+    },
+    {
+        "kota": "KOTA SOLOK"
+    },
+    {
+        "kota": "KOTA SORONG"
+    },
+    {
+        "kota": "KOTA SUBULUSSALAM"
+    },
+    {
+        "kota": "KOTA SUKABUMI"
+    },
+    {
+        "kota": "KOTA SUNGAI PENUH"
+    },
+    {
+        "kota": "KOTA SURABAYA"
+    },
+    {
+        "kota": "KOTA SURAKARTA"
+    },
+    {
+        "kota": "KOTA TANGERANG"
+    },
+    {
+        "kota": "KOTA TANGERANG SELATAN"
+    },
+    {
+        "kota": "KOTA TANJUNG BALAI"
+    },
+    {
+        "kota": "KOTA TANJUNGPINANG"
+    },
+    {
+        "kota": "KOTA TARAKAN"
+    },
+    {
+        "kota": "KOTA TASIKMALAYA"
+    },
+    {
+        "kota": "KOTA TEBING TINGGI"
+    },
+    {
+        "kota": "KOTA TEGAL"
+    },
+    {
+        "kota": "KOTA TERNATE"
+    },
+    {
+        "kota": "KOTA TIDORE KEPULAUAN"
+    },
+    {
+        "kota": "KOTA TOMOHON"
+    },
+    {
+        "kota": "KOTA TUAL"
+    },
+    {
+        "kota": "KOTA YOGYAKARTA"
+    },
+    {
+        "kota": "KOTABARU"
+    },
+    {
+        "kota": "KOTAWARINGIN BARAT"
+    },
+    {
+        "kota": "KOTAWARINGIN TIMUR"
+    },
+    {
+        "kota": "KUANTAN SINGINGI"
+    },
+    {
+        "kota": "KUBU RAYA"
+    },
+    {
+        "kota": "KUDUS"
+    },
+    {
+        "kota": "KULON PROGO"
+    },
+    {
+        "kota": "KUNINGAN"
+    },
+    {
+        "kota": "KUPANG"
+    },
+    {
+        "kota": "KUTAI BARAT"
+    },
+    {
+        "kota": "KUTAI KARTANEGARA"
+    },
+    {
+        "kota": "KUTAI TIMUR"
+    },
+    {
+        "kota": "LABUHANBATU"
+    },
+    {
+        "kota": "LABUHANBATU SELATAN"
+    },
+    {
+        "kota": "LABUHANBATU UTARA"
+    },
+    {
+        "kota": "LAHAT"
+    },
+    {
+        "kota": "LAMANDAU"
+    },
+    {
+        "kota": "LAMONGAN"
+    },
+    {
+        "kota": "LAMPUNG BARAT"
+    },
+    {
+        "kota": "LAMPUNG SELATAN"
+    },
+    {
+        "kota": "LAMPUNG TENGAH"
+    },
+    {
+        "kota": "LAMPUNG TIMUR"
+    },
+    {
+        "kota": "LAMPUNG UTARA"
+    },
+    {
+        "kota": "LANDAK"
+    },
+    {
+        "kota": "LANGKAT"
+    },
+    {
+        "kota": "LANNY JAYA"
+    },
+    {
+        "kota": "LEBAK"
+    },
+    {
+        "kota": "LEBONG"
+    },
+    {
+        "kota": "LEMBATA"
+    },
+    {
+        "kota": "LIMA PULUH KOTA"
+    },
+    {
+        "kota": "LINGGA"
+    },
+    {
+        "kota": "LOMBOK BARAT"
+    },
+    {
+        "kota": "LOMBOK TENGAH"
+    },
+    {
+        "kota": "LOMBOK TIMUR"
+    },
+    {
+        "kota": "LOMBOK UTARA"
+    },
+    {
+        "kota": "LUMAJANG"
+    },
+    {
+        "kota": "LUWU"
+    },
+    {
+        "kota": "LUWU TIMUR"
+    },
+    {
+        "kota": "LUWU UTARA"
+    },
+    {
+        "kota": "MADIUN"
+    },
+    {
+        "kota": "MAGELANG"
+    },
+    {
+        "kota": "MAGETAN"
+    },
+    {
+        "kota": "MAJALENGKA"
+    },
+    {
+        "kota": "MAJENE"
+    },
+    {
+        "kota": "MALANG"
+    },
+    {
+        "kota": "MALINAU"
+    },
+    {
+        "kota": "MALUKU BARAT DAYA"
+    },
+    {
+        "kota": "MALUKU TENGAH"
+    },
+    {
+        "kota": "MALUKU TENGGARA"
+    },
+    {
+        "kota": "MALUKU TENGGARA BARAT"
+    },
+    {
+        "kota": "MAMASA"
+    },
+    {
+        "kota": "MAMBERAMO RAYA"
+    },
+    {
+        "kota": "MAMBERAMO TENGAH"
+    },
+    {
+        "kota": "MAMUJU"
+    },
+    {
+        "kota": "MAMUJU UTARA"
+    },
+    {
+        "kota": "MANDAILING NATAL"
+    },
+    {
+        "kota": "MANGGARAI"
+    },
+    {
+        "kota": "MANGGARAI BARAT"
+    },
+    {
+        "kota": "MANGGARAI TIMUR"
+    },
+    {
+        "kota": "MANOKWARI"
+    },
+    {
+        "kota": "MAPPI"
+    },
+    {
+        "kota": "MAROS"
+    },
+    {
+        "kota": "MAYBRAT"
+    },
+    {
+        "kota": "MELAWI"
+    },
+    {
+        "kota": "MERANGIN"
+    },
+    {
+        "kota": "MERAUKE"
+    },
+    {
+        "kota": "MESUJI"
+    },
+    {
+        "kota": "MIMIKA"
+    },
+    {
+        "kota": "MINAHASA"
+    },
+    {
+        "kota": "MINAHASA SELATAN"
+    },
+    {
+        "kota": "MINAHASA TENGGARA"
+    },
+    {
+        "kota": "MINAHASA UTARA"
+    },
+    {
+        "kota": "MOJOKERTO"
+    },
+    {
+        "kota": "MOROWALI"
+    },
+    {
+        "kota": "MUARA ENIM"
+    },
+    {
+        "kota": "MUARO JAMBI"
+    },
+    {
+        "kota": "MUKOMUKO"
+    },
+    {
+        "kota": "MUNA"
+    },
+    {
+        "kota": "MURUNG RAYA"
+    },
+    {
+        "kota": "MUSI BANYUASIN"
+    },
+    {
+        "kota": "MUSI RAWAS"
+    },
+    {
+        "kota": "NABIRE"
+    },
+    {
+        "kota": "NAGAN RAYA"
+    },
+    {
+        "kota": "NAGEKEO"
+    },
+    {
+        "kota": "NATUNA"
+    },
+    {
+        "kota": "NDUGA"
+    },
+    {
+        "kota": "NGADA"
+    },
+    {
+        "kota": "NGANJUK"
+    },
+    {
+        "kota": "NGAWI"
+    },
+    {
+        "kota": "NIAS"
+    },
+    {
+        "kota": "NIAS BARAT"
+    },
+    {
+        "kota": "NIAS SELATAN"
+    },
+    {
+        "kota": "NIAS UTARA"
+    },
+    {
+        "kota": "NUNUKAN"
+    },
+    {
+        "kota": "OGAN ILIR"
+    },
+    {
+        "kota": "OGAN KOMERING ILIR"
+    },
+    {
+        "kota": "OGAN KOMERING ULU"
+    },
+    {
+        "kota": "OGAN KOMERING ULU SELATAN"
+    },
+    {
+        "kota": "OGAN KOMERING ULU TIMUR"
+    },
+    {
+        "kota": "PACITAN"
+    },
+    {
+        "kota": "PADANG LAWAS"
+    },
+    {
+        "kota": "PADANG LAWAS UTARA"
+    },
+    {
+        "kota": "PADANG PARIAMAN"
+    },
+    {
+        "kota": "PAHUWATO"
+    },
+    {
+        "kota": "PAKPAK BHARAT"
+    },
+    {
+        "kota": "PAMEKASAN"
+    },
+    {
+        "kota": "PANDEGLANG"
+    },
+    {
+        "kota": "PANGKAJENE DAN KEPULAUAN"
+    },
+    {
+        "kota": "PANIAI"
+    },
+    {
+        "kota": "PARIGI MOUTONG"
+    },
+    {
+        "kota": "PASAMAN"
+    },
+    {
+        "kota": "PASAMAN BARAT"
+    },
+    {
+        "kota": "PASER"
+    },
+    {
+        "kota": "PASURUAN"
+    },
+    {
+        "kota": "PATI"
+    },
+    {
+        "kota": "PEGUNUNGAN BINTANG"
+    },
+    {
+        "kota": "PEKALONGAN"
+    },
+    {
+        "kota": "PELALAWAN"
+    },
+    {
+        "kota": "PEMALANG"
+    },
+    {
+        "kota": "PENAJAM PASER UTARA"
+    },
+    {
+        "kota": "PESAWARAN"
+    },
+    {
+        "kota": "PESISIR SELATAN"
+    },
+    {
+        "kota": "PIDIE"
+    },
+    {
+        "kota": "PIDIE JAYA"
+    },
+    {
+        "kota": "PINRANG"
+    },
+    {
+        "kota": "POLEWALI MANDAR"
+    },
+    {
+        "kota": "PONOROGO"
+    },
+    {
+        "kota": "PONTIANAK"
+    },
+    {
+        "kota": "POSO"
+    },
+    {
+        "kota": "PRINGSEWU"
+    },
+    {
+        "kota": "PROBOLINGGO"
+    },
+    {
+        "kota": "PULANG PISAU"
+    },
+    {
+        "kota": "PULAU MOROTAI"
+    },
+    {
+        "kota": "PUNCAK"
+    },
+    {
+        "kota": "PUNCAK JAYA"
+    },
+    {
+        "kota": "PURBALINGGA"
+    },
+    {
+        "kota": "PURWAKARTA"
+    },
+    {
+        "kota": "PURWOREJO"
+    },
+    {
+        "kota": "RAJA AMPAT"
+    },
+    {
+        "kota": "REJANG LEBONG"
+    },
+    {
+        "kota": "REMBANG"
+    },
+    {
+        "kota": "ROKAN HILIR"
+    },
+    {
+        "kota": "ROKAN HULU"
+    },
+    {
+        "kota": "ROTE NDAO"
+    },
+    {
+        "kota": "SABU RAIJUA"
+    },
+    {
+        "kota": "SAMBAS"
+    },
+    {
+        "kota": "SAMOSIR"
+    },
+    {
+        "kota": "SAMPANG"
+    },
+    {
+        "kota": "SANGGAU"
+    },
+    {
+        "kota": "SARMI"
+    },
+    {
+        "kota": "SAROLANGUN"
+    },
+    {
+        "kota": "SEKADAU"
+    },
+    {
+        "kota": "SELUMA"
+    },
+    {
+        "kota": "SEMARANG"
+    },
+    {
+        "kota": "SERAM BAGIAN BARAT"
+    },
+    {
+        "kota": "SERAM BAGIAN TIMUR"
+    },
+    {
+        "kota": "SERANG"
+    },
+    {
+        "kota": "SERDANG BEDAGAI"
+    },
+    {
+        "kota": "SERUYAN"
+    },
+    {
+        "kota": "SIAK"
+    },
+    {
+        "kota": "SIDENRENG RAPPANG"
+    },
+    {
+        "kota": "SIDOARJO"
+    },
+    {
+        "kota": "SIGI"
+    },
+    {
+        "kota": "SIJUNJUNG"
+    },
+    {
+        "kota": "SIKKA"
+    },
+    {
+        "kota": "SIMALUNGUN"
+    },
+    {
+        "kota": "SIMEULUE"
+    },
+    {
+        "kota": "SINJAI"
+    },
+    {
+        "kota": "SINTANG"
+    },
+    {
+        "kota": "SITUBONDO"
+    },
+    {
+        "kota": "SLEMAN"
+    },
+    {
+        "kota": "SOLOK"
+    },
+    {
+        "kota": "SOLOK SELATAN"
+    },
+    {
+        "kota": "SOPPENG"
+    },
+    {
+        "kota": "SORONG"
+    },
+    {
+        "kota": "SORONG SELATAN"
+    },
+    {
+        "kota": "SRAGEN"
+    },
+    {
+        "kota": "SUBANG"
+    },
+    {
+        "kota": "SUKABUMI"
+    },
+    {
+        "kota": "SUKAMARA"
+    },
+    {
+        "kota": "SUKOHARJO"
+    },
+    {
+        "kota": "SUMBA BARAT"
+    },
+    {
+        "kota": "SUMBA BARAT DAYA"
+    },
+    {
+        "kota": "SUMBA TENGAH"
+    },
+    {
+        "kota": "SUMBA TIMUR"
+    },
+    {
+        "kota": "SUMBAWA"
+    },
+    {
+        "kota": "SUMBAWA BARAT"
+    },
+    {
+        "kota": "SUMEDANG"
+    },
+    {
+        "kota": "SUMENEP"
+    },
+    {
+        "kota": "SUPIORI"
+    },
+    {
+        "kota": "TABALONG"
+    },
+    {
+        "kota": "TABANAN"
+    },
+    {
+        "kota": "TAKALAR"
+    },
+    {
+        "kota": "TAMBRAUW"
+    },
+    {
+        "kota": "TANA TIDUNG"
+    },
+    {
+        "kota": "TANA TORAJA"
+    },
+    {
+        "kota": "TANAH BUMBU"
+    },
+    {
+        "kota": "TANAH DATAR"
+    },
+    {
+        "kota": "TANAH LAUT"
+    },
+    {
+        "kota": "TANGERANG"
+    },
+    {
+        "kota": "TANGGAMUS"
+    },
+    {
+        "kota": "TANJUNG JABUNG BARAT"
+    },
+    {
+        "kota": "TANJUNG JABUNG TIMUR"
+    },
+    {
+        "kota": "TAPANULI SELATAN"
+    },
+    {
+        "kota": "TAPANULI TENGAH"
+    },
+    {
+        "kota": "TAPANULI UTARA"
+    },
+    {
+        "kota": "TAPIN"
+    },
+    {
+        "kota": "TASIKMALAYA"
+    },
+    {
+        "kota": "TEBO"
+    },
+    {
+        "kota": "TEGAL"
+    },
+    {
+        "kota": "TELUK BINTUNI"
+    },
+    {
+        "kota": "TELUK WONDAMA"
+    },
+    {
+        "kota": "TEMANGGUNG"
+    },
+    {
+        "kota": "TIMOR TENGAH SELATAN"
+    },
+    {
+        "kota": "TIMOR TENGAH UTARA"
+    },
+    {
+        "kota": "TOBA SAMOSIR"
+    },
+    {
+        "kota": "TOJO UNA-UNA"
+    },
+    {
+        "kota": "TOLIKARA"
+    },
+    {
+        "kota": "TOLITOLI"
+    },
+    {
+        "kota": "TORAJA UTARA"
+    },
+    {
+        "kota": "TRENGGALEK"
+    },
+    {
+        "kota": "TUBAN"
+    },
+    {
+        "kota": "TULANG BAWANG"
+    },
+    {
+        "kota": "TULANG BAWANG BARAT"
+    },
+    {
+        "kota": "TULUNGAGUNG"
+    },
+    {
+        "kota": "WAJO"
+    },
+    {
+        "kota": "WAKATOBI"
+    },
+    {
+        "kota": "WAROPEN"
+    },
+    {
+        "kota": "WAY KANAN"
+    },
+    {
+        "kota": "WONOGIRI"
+    },
+    {
+        "kota": "WONOSOBO"
+    },
+    {
+        "kota": "YAHUKIMO"
+    },
+    {
+        "kota": "YALIMO"
+    }
+]

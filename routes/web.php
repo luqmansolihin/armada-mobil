@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\BlogController as ContentBlogController;
 use App\Http\Controllers\AfterSaleController as ContentAfterSaleController;
+use App\Http\Controllers\CareerController as ContentCareerController;
 use App\Http\Controllers\CMS\OutletController;
 use App\Http\Controllers\PromotionController as ContentPromotionController;
 use App\Http\Controllers\CMS\AfterSaleController;
 use App\Http\Controllers\CMS\BannerController;
 use App\Http\Controllers\CMS\BlogController;
 use App\Http\Controllers\CMS\BrochureController;
+use App\Http\Controllers\CMS\CareerController;
 use App\Http\Controllers\CMS\ContactController;
 use App\Http\Controllers\CMS\DashboardController;
 use App\Http\Controllers\CMS\LoginController;
@@ -59,6 +61,11 @@ Route::prefix('products')->group(function () {
 });
 
 Route::get('/outlets', [ContentOutletController::class, 'index'])->name('outlets');
+
+Route::prefix('careers')->group(function () {
+    Route::get('/', [ContentCareerController::class, 'index'])->name('careers.index');
+    Route::get('/{slug}', [ContentCareerController::class, 'show'])->name('careers.show');
+});
 
 Route::prefix('cms')->group(function () {
     Route::get('/', function () {
@@ -177,6 +184,15 @@ Route::prefix('cms')->group(function () {
             Route::get('/{id}/edit', [OutletController::class, 'edit'])->name('cms.outlets.edit');
             Route::put('/{id}/update', [OutletController::class, 'update'])->name('cms.outlets.update');
             Route::delete('/{id}', [OutletController::class, 'destroy'])->name('cms.outlets.delete');
+        });
+
+        Route::prefix('careers')->group(function () {
+            Route::get('/', [CareerController::class, 'index'])->name('cms.careers.index');
+            Route::get('/create', [CareerController::class, 'create'])->name('cms.careers.create');
+            Route::post('/store', [CareerController::class, 'store'])->name('cms.careers.store');
+            Route::get('/{id}/edit', [CareerController::class, 'edit'])->name('cms.careers.edit');
+            Route::put('/{id}/update', [CareerController::class, 'update'])->name('cms.careers.update');
+            Route::delete('/{id}', [CareerController::class, 'destroy'])->name('cms.careers.delete');
         });
     });
 });
