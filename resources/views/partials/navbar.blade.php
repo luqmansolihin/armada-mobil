@@ -36,10 +36,11 @@
             </a>
 
             <!-- Kolom Pencarian di Tengah -->
-            <form class="form-inline d-flex align-items-center me-auto" action="#" method="GET">
+            <form class="form-inline d-flex align-items-center me-auto" action="{{ route('homepage') }}" method="GET">
                 <div class="position-relative mx-auto">
-                    <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Search">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><i
+                    <input class="form-control w-100 py-3 ps-4 pe-5" type="text" name="s" placeholder="Search"
+                        required>
+                    <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><i
                             class="fas fa fa-search"></i></button>
                 </div>
             </form>
