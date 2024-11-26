@@ -14,7 +14,7 @@
     @stack('style')
 </head>
 
-<body class="hold-transition @if(request()->is('cms/login*')) login-page @else sidebar-mini  @endif">
+<body class="hold-transition @if (request()->is('cms/login*')) login-page @else sidebar-mini layout-fixed @endif">
     @yield('app')
 
     @stack('script')

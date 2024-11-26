@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\ContactTypeEnum;
 use App\Enums\DayEnum;
 use App\Models\Brochure;
+use App\Models\Career;
 use App\Models\Contact;
 use App\Models\OperationalHour;
 use App\Models\Profile;
@@ -14,6 +15,12 @@ class CareerController extends Controller
 {
     public function index(): View
     {
+        $careers = Career::query()
+            ->with(['careerPlacements', 'careerPlacements.city'])
+            ->where('status', 1)
+            ->orderByDesc('registration_from')
+            ->get();
+
         $profile = Profile::query()
             ->select(['address', 'short_description', 'cover'])
             ->first();
@@ -59,6 +66,7 @@ class CareerController extends Controller
             ->get();
 
         return view('pages.careers.index', compact(
+            'careers',
             'profile',
             'brochures',
             'operationalHours',
@@ -70,6 +78,12 @@ class CareerController extends Controller
 
     public function show(string $slug): View
     {
+        $career = Career::query()
+            ->with(['careerPlacements', 'careerPlacements.city'])
+            ->where('status', 1)
+            ->where('slug', $slug)
+            ->firstOrFail();
+
         $profile = Profile::query()
             ->select(['address', 'short_description', 'cover'])
             ->first();
@@ -115,6 +129,7 @@ class CareerController extends Controller
             ->get();
 
         return view('pages.careers.show', compact(
+            'career',
             'profile',
             'brochures',
             'operationalHours',

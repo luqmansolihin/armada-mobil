@@ -34,14 +34,14 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('cms.services.index') }}"
-                       class="nav-link @if (request()->is('cms/services*')) active @endif">
+                        class="nav-link @if (request()->is('cms/services*')) active @endif">
                         <i class="nav-icon fas fa-hand-holding-usd"></i>
                         <p>Service</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('cms.contacts.index') }}"
-                       class="nav-link @if (request()->is('cms/contacts*')) active @endif">
+                        class="nav-link @if (request()->is('cms/contacts*')) active @endif">
                         <i class="nav-icon fas fa-address-card"></i>
                         <p>Contact</p>
                     </a>
@@ -62,7 +62,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('cms.after-sales.index') }}"
-                       class="nav-link @if (request()->is('cms/after-sales*')) active @endif">
+                        class="nav-link @if (request()->is('cms/after-sales*')) active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>After Sale</p>
                     </a>
@@ -76,14 +76,14 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('cms.promotions.index') }}"
-                       class="nav-link @if (request()->is('cms/promotions*')) active @endif">
+                        class="nav-link @if (request()->is('cms/promotions*')) active @endif">
                         <i class="nav-icon fas fa-percentage"></i>
                         <p>Promotion</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('cms.outlets.index') }}"
-                       class="nav-link @if (request()->is('cms/outlets*')) active @endif">
+                        class="nav-link @if (request()->is('cms/outlets*')) active @endif">
                         <i class="nav-icon fas fa-store-alt"></i>
                         <p>Outlet</p>
                     </a>
@@ -107,6 +107,13 @@
                         class="nav-link @if (request()->is('cms/brochures*')) active @endif">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>Brochure</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cms.careers.index') }}"
+                        class="nav-link @if (request()->is('cms/careers*')) active @endif">
+                        <i class="nav-icon fas fa-bullhorn"></i>
+                        <p>Career</p>
                     </a>
                 </li>
                 <li class="nav-item">

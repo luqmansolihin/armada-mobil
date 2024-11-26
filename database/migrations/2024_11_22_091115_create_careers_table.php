@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('registration_to');
             $table->integer('minimal_age');
             $table->integer('maximal_age');
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
