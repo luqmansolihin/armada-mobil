@@ -30,11 +30,24 @@ class ProfileController extends Controller
             $validatedRequest = $request->validated();
 
             if ($request->hasFile('cover')) {
-                $image = $request->file('cover');
-                $mime = $image->getClientMimeType();
-                $base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $destinationPath = public_path('img/profile');
+                $file = $request->file('cover');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
 
-                $validatedRequest['cover'] = "data:{$mime};base64,{$base64}";
+                if (!empty($profile->cover)) {
+                    $oldFileName = basename($profile->cover);
+                    $oldFilePath = $destinationPath . '/' . $oldFileName;
+
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $file->move($destinationPath, $filename);
+
+                $fullUrl = asset('img/profile/' . $filename);
+
+                $validatedRequest['cover'] = $fullUrl;
             }
 
             $profile->update($validatedRequest);

@@ -31,12 +31,16 @@ class BlogController extends Controller
 
     public function store(BlogStoreRequest $request): RedirectResponse
     {
-        $image = $request->file('image');
-        $mime = $image->getClientMimeType();
-        $base64 = base64_encode(file_get_contents($image->getRealPath()));
+        $destinationPath = public_path('img/blog');
+        $file = $request->file('image');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+
+        $file->move($destinationPath, $filename);
+
+        $fullUrl = asset('img/blog/' . $filename);
 
         $request = $request->safe()->merge([
-            'image' => "data:{$mime};base64,{$base64}"
+            'image' => $fullUrl
         ]);
 
         Blog::query()->create($request->all());
@@ -61,11 +65,24 @@ class BlogController extends Controller
             $blog = Blog::query()->findOrFail($id);
 
             if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $mime = $image->getClientMimeType();
-                $base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $destinationPath = public_path('img/blog');
+                $file = $request->file('image');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
 
-                $validatedRequest['image'] = "data:{$mime};base64,{$base64}";
+                if (!empty($blog->image)) {
+                    $oldFileName = basename($blog->image);
+                    $oldFilePath = $destinationPath . '/' . $oldFileName;
+
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $file->move($destinationPath, $filename);
+
+                $fullUrl = asset('img/blog/' . $filename);
+
+                $validatedRequest['image'] = $fullUrl;
             }
 
             $blog->update($validatedRequest);

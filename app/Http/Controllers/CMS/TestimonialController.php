@@ -30,12 +30,16 @@ class TestimonialController extends Controller
 
     public function store(TestimonialStoreRequest $request): RedirectResponse
     {
-        $image = $request->file('image');
-        $mime = $image->getClientMimeType();
-        $base64 = base64_encode(file_get_contents($image->getRealPath()));
+        $destinationPath = public_path('img/testimonial');
+        $file = $request->file('image');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+
+        $file->move($destinationPath, $filename);
+
+        $fullUrl = asset('img/testimonial/' . $filename);
 
         $request = $request->safe()->merge([
-            'image' => "data:{$mime};base64,{$base64}"
+            'image' => $fullUrl
         ]);
 
         Testimonial::query()->create($request->all());
@@ -60,11 +64,24 @@ class TestimonialController extends Controller
             $testimonial = Testimonial::query()->findOrFail($id);
 
             if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $mime = $image->getClientMimeType();
-                $base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $destinationPath = public_path('img/testimonial');
+                $file = $request->file('image');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
 
-                $validatedRequest['image'] = "data:{$mime};base64,{$base64}";
+                if (!empty($testimonial->image)) {
+                    $oldFileName = basename($testimonial->image);
+                    $oldFilePath = $destinationPath . '/' . $oldFileName;
+
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $file->move($destinationPath, $filename);
+
+                $fullUrl = asset('img/testimonial/' . $filename);
+
+                $validatedRequest['image'] = $fullUrl;
             }
 
             $testimonial->update($validatedRequest);

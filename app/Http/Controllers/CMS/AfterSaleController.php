@@ -31,12 +31,16 @@ class AfterSaleController extends Controller
 
     public function store(AfterSaleStoreRequest $request): RedirectResponse
     {
-        $image = $request->file('image');
-        $mime = $image->getClientMimeType();
-        $base64 = base64_encode(file_get_contents($image->getRealPath()));
+        $destinationPath = public_path('img/after-sale');
+        $file = $request->file('image');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+
+        $file->move($destinationPath, $filename);
+
+        $fullUrl = asset('img/after-sale/' . $filename);
 
         $request = $request->safe()->merge([
-            'image' => "data:{$mime};base64,{$base64}"
+            'image' => $fullUrl
         ]);
 
         AfterSale::query()->create($request->all());
@@ -61,11 +65,24 @@ class AfterSaleController extends Controller
             $afterSale = AfterSale::query()->findOrFail($id);
 
             if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $mime = $image->getClientMimeType();
-                $base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $destinationPath = public_path('img/after-sale');
+                $file = $request->file('image');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
 
-                $validatedRequest['image'] = "data:{$mime};base64,{$base64}";
+                if (!empty($afterSale->image)) {
+                    $oldFileName = basename($afterSale->image);
+                    $oldFilePath = $destinationPath . '/' . $oldFileName;
+
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $file->move($destinationPath, $filename);
+
+                $fullUrl = asset('img/after-sale/' . $filename);
+
+                $validatedRequest['image'] = $fullUrl;
             }
 
             $afterSale->update($validatedRequest);

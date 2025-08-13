@@ -36,12 +36,16 @@ class ProductController extends Controller
 
     public function store(ProductStoreRequest $request): RedirectResponse
     {
-        $image = $request->file('image');
-        $mime = $image->getClientMimeType();
-        $base64 = base64_encode(file_get_contents($image->getRealPath()));
+        $destinationPath = public_path('img/product');
+        $file = $request->file('image');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+
+        $file->move($destinationPath, $filename);
+
+        $fullUrl = asset('img/product/' . $filename);
 
         $request = $request->safe()->merge([
-            'image' => "data:{$mime};base64,{$base64}"
+            'image' => $fullUrl
         ]);
 
         Product::query()->create($request->all());
@@ -72,11 +76,24 @@ class ProductController extends Controller
             $product = Product::query()->findOrFail($id);
 
             if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $mime = $image->getClientMimeType();
-                $base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $destinationPath = public_path('img/product');
+                $file = $request->file('image');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
 
-                $validatedRequest['image'] = "data:{$mime};base64,{$base64}";
+                if (!empty($product->image)) {
+                    $oldFileName = basename($product->image);
+                    $oldFilePath = $destinationPath . '/' . $oldFileName;
+
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $file->move($destinationPath, $filename);
+
+                $fullUrl = asset('img/product/' . $filename);
+
+                $validatedRequest['image'] = $fullUrl;
             }
 
             $product->update($validatedRequest);

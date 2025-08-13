@@ -31,12 +31,16 @@ class PromotionController extends Controller
 
     public function store(PromotionStoreRequest $request): RedirectResponse
     {
-        $image = $request->file('image');
-        $mime = $image->getClientMimeType();
-        $base64 = base64_encode(file_get_contents($image->getRealPath()));
+        $destinationPath = public_path('img/promotion');
+        $file = $request->file('image');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+
+        $file->move($destinationPath, $filename);
+
+        $fullUrl = asset('img/promotion/' . $filename);
 
         $request = $request->safe()->merge([
-            'image' => "data:{$mime};base64,{$base64}"
+            'image' => $fullUrl
         ]);
 
         Promotion::query()->create($request->all());
@@ -61,11 +65,24 @@ class PromotionController extends Controller
             $promotion = Promotion::query()->findOrFail($id);
 
             if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $mime = $image->getClientMimeType();
-                $base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $destinationPath = public_path('img/promotion');
+                $file = $request->file('image');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
 
-                $validatedRequest['image'] = "data:{$mime};base64,{$base64}";
+                if (!empty($promotion->image)) {
+                    $oldFileName = basename($promotion->image);
+                    $oldFilePath = $destinationPath . '/' . $oldFileName;
+
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $file->move($destinationPath, $filename);
+
+                $fullUrl = asset('img/promotion/' . $filename);
+
+                $validatedRequest['image'] = $fullUrl;
             }
 
             $promotion->update($validatedRequest);
