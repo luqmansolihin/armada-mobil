@@ -1,6 +1,11 @@
 @extends('layouts.cms.app')
 
 @push('additional-style')
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css"
+        integrity="sha512-3JRrEUwaCkFUBLK1N8HehwQgu8e23jTH4np5NHOmQOobuC4ROQxFwFgBLTnhcnQRMs84muMh0PnnwXlPq5MGjg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
 @endpush
 
@@ -58,6 +63,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="created_at" class="col-sm-2 col-form-label">Registration From</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="created_at" name="created_at"
+                                    class="form-control datetimepicker-input @error('created_at') is-invalid @enderror"
+                                    value="{{ old('created_at', $afterSale->created_at) }}" data-target="#created_at"
+                                    data-toggle="datetimepicker" autocomplete="off" required />
+                                @error('created_at')
+                                    <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="status" class="col-sm-2 col-form-label">Status</label>
                             <div class="col-sm-6">
                                 <div class="custom-control custom-radio">
@@ -105,10 +122,19 @@
         }
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js">
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.js"></script>
 
     <script>
         $(document).ready(function() {
+            $('#created_at').datetimepicker({
+                format: 'YYYY-MM-DD'
+            })
+
             $('#content').summernote({
                 fontNames: [
                     'Arial',

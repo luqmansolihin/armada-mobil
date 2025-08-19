@@ -48,7 +48,7 @@
                                             inactive
                                         @endif
                                     </td>
-                                    <td>{{ $blog->created_at->tz('Asia/Jakarta')->format('d-m-Y H:i:s') }}</td>
+                                    <td>{{ $blog->created_at->tz('Asia/Jakarta')->format('d-m-Y') }}</td>
                                     <td>
                                         <a href="{{ route('cms.blogs.edit', $blog->id) }}" class="badge bg-warning"
                                             title="Update"><i class="fas fa-edit"></i></a>

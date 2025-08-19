@@ -18,6 +18,7 @@ class AfterSaleController extends Controller
         $afterSales = AfterSale::query()
             ->select(['slug', 'title', 'image', 'created_at'])
             ->where('status', 1)
+            ->orderBy('created_at')
             ->get();
 
         $profile = Profile::query()

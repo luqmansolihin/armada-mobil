@@ -17,6 +17,7 @@ class AfterSaleUpdateRequest extends FormRequest
             'user_id' => 'sometimes|integer|exists:users,id',
             'title' => 'required|string|max:255',
             'image' => 'sometimes|image|mimes:jpeg,jpg,png|max:2048',
+            'created_at' => 'required|date_format:Y-m-d',
             'status' => 'required|boolean',
             'content' => 'required|string',
         ];

@@ -48,10 +48,10 @@
                                             inactive
                                         @endif
                                     </td>
-                                    <td>{{ $promotion->created_at->tz('Asia/Jakarta')->format('d-m-Y H:i:s') }}</td>
+                                    <td>{{ $promotion->created_at->tz('Asia/Jakarta')->format('d-m-Y') }}</td>
                                     <td>
-                                        <a href="{{ route('cms.promotions.edit', $promotion->id) }}" class="badge bg-warning"
-                                            title="Update"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('cms.promotions.edit', $promotion->id) }}"
+                                            class="badge bg-warning" title="Update"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('cms.promotions.delete', $promotion->id) }}" method="POST"
                                             class="d-inline">
                                             @method('delete')

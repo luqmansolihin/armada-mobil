@@ -18,6 +18,7 @@ class BlogUpdateRequest extends FormRequest
             'title' => 'required|string|max:255',
             'image' => 'sometimes|image|mimes:jpeg,jpg,png|max:2048',
             'status' => 'required|boolean',
+            'created_at' => 'required|date_format:Y-m-d',
             'content' => 'required|string',
         ];
     }

@@ -25,7 +25,8 @@
                     @endif
 
                     <div class="col-lg-2 p-0 mb-2">
-                        <a href="{{ route('cms.after-sales.create') }}" class="btn btn-primary btn-block">Add Service After Sale</a>
+                        <a href="{{ route('cms.after-sales.create') }}" class="btn btn-primary btn-block">Add Service After
+                            Sale</a>
                     </div>
 
                     <table id="after-sales" class="table table-bordered table-striped">
@@ -48,10 +49,10 @@
                                             inactive
                                         @endif
                                     </td>
-                                    <td>{{ $afterSale->created_at->tz('Asia/Jakarta')->format('d-m-Y H:i:s') }}</td>
+                                    <td>{{ $afterSale->created_at->tz('Asia/Jakarta')->format('d-m-Y') }}</td>
                                     <td>
-                                        <a href="{{ route('cms.after-sales.edit', $afterSale->id) }}" class="badge bg-warning"
-                                            title="Update"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('cms.after-sales.edit', $afterSale->id) }}"
+                                            class="badge bg-warning" title="Update"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('cms.after-sales.delete', $afterSale->id) }}" method="POST"
                                             class="d-inline">
                                             @method('delete')

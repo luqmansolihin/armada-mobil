@@ -18,6 +18,7 @@ class AfterSaleStoreRequest extends FormRequest
             'title' => 'required|string|max:225',
             'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'content' => 'required|string',
+            'created_at' => 'required|date_format:Y-m-d',
             'status' => 'required|boolean',
         ];
     }

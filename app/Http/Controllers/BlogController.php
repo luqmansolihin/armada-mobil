@@ -18,6 +18,7 @@ class BlogController extends Controller
         $blogs = Blog::query()
             ->select(['slug', 'title', 'image', 'created_at'])
             ->where('status', 1)
+            ->orderBy('created_at')
             ->get();
 
         $profile = Profile::query()
