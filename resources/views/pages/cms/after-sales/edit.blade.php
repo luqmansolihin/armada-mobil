@@ -147,11 +147,35 @@
                     'Times New Roman',
                     'Verdana',
                     'Isuzu Head',
-                    'Isuzu Body'
+                    'Isuzu Body',
+                    'Open Sans Condensed Bold',
+                    'Open Sans Condensed Bold Italic',
+                    'Open Sans Condensed Extra Bold',
+                    'Open Sans Condensed Extra Bold Italic',
+                    'Open Sans Condensed Italic',
+                    'Open Sans Condensed Light',
+                    'Open Sans Condensed Light Italic',
+                    'Open Sans Condensed Medium',
+                    'Open Sans Condensed Medium Italic',
+                    'Open Sans Condensed Regular',
+                    'Open Sans Condensed Semi Bold',
+                    'Open Sans Condensed Semi Bold Italic'
                 ],
                 fontNamesIgnoreCheck: [
                     'Isuzu Head',
-                    'Isuzu Body'
+                    'Isuzu Body',
+                    'Open Sans Condensed Bold',
+                    'Open Sans Condensed Bold Italic',
+                    'Open Sans Condensed Extra Bold',
+                    'Open Sans Condensed Extra Bold Italic',
+                    'Open Sans Condensed Italic',
+                    'Open Sans Condensed Light',
+                    'Open Sans Condensed Light Italic',
+                    'Open Sans Condensed Medium',
+                    'Open Sans Condensed Medium Italic',
+                    'Open Sans Condensed Regular',
+                    'Open Sans Condensed Semi Bold',
+                    'Open Sans Condensed Semi Bold Italic'
                 ],
             });
         });

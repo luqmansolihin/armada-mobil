@@ -7,25 +7,125 @@
 }
 
 @font-face {
-    font-family: 'Isuzu Head';
-    src: url('../font/head/isuzu-head.otf') format('opentype');
+    font-family: "Isuzu Head";
+    src: url("../font/head/isuzu-head.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Isuzu Body';
-    src: url('../font/body/isuzu-body.ttf') format('truetype');
+    font-family: "Isuzu Body";
+    src: url("../font/body/isuzu-body.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Isuzu Head', sans-serif;
+@font-face {
+    font-family: "Open Sans Condensed Bold";
+    src: url("../font/open-sans/OpenSans_Condensed-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Bold Italic";
+    src: url("../font/open-sans/OpenSans_Condensed-BoldItalic.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Extra Bold";
+    src: url("../font/open-sans/OpenSans_Condensed-ExtraBold.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Extra Bold Italic";
+    src: url("../font/open-sans/OpenSans_Condensed-ExtraBoldItalic.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Italic";
+    src: url("../font/open-sans/OpenSans_Condensed-Italic.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Light";
+    src: url("../font/open-sans/OpenSans_Condensed-Light.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Light Italic";
+    src: url("../font/open-sans/OpenSans_Condensed-LightItalic.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Medium";
+    src: url("../font/open-sans/OpenSans_Condensed-Medium.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Medium Italic";
+    src: url("../font/open-sans/OpenSans_Condensed-MediumItalic.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Regular";
+    src: url("../font/open-sans/OpenSans_Condensed-Regular.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Semi Bold";
+    src: url("../font/open-sans/OpenSans_Condensed-SemiBold.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed Semi Bold Italic";
+    src: url("../font/open-sans/OpenSans_Condensed-SemiBoldItalic.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Isuzu Head", sans-serif;
 }
 
 body {
-    font-family: 'Isuzu Body', sans-serif;
+    font-family: "Isuzu Body", sans-serif;
 }
 
 .fw-medium {

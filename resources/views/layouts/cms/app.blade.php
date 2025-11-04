@@ -21,6 +21,90 @@
             font-weight: normal;
             font-style: normal;
         }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Bold';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-Bold.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Bold Italic';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-BoldItalic.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Extra Bold';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-ExtraBold.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Extra Bold Italic';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-ExtraBoldItalic.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Italic';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-Italic.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Light';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-Light.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Light Italic';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-LightItalic.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Medium';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-Medium.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Medium Italic';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-MediumItalic.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Regular';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-Regular.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Semi Bold';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-SemiBold.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Open Sans Condensed Semi Bold Italic';
+            src: url({{ asset('font/open-sans/OpenSans_Condensed-SemiBoldItalic.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 
     @stack('additional-style')
