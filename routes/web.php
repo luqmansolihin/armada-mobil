@@ -67,6 +67,8 @@ Route::prefix('careers')->group(function () {
     Route::get('/{slug}', [ContentCareerController::class, 'show'])->name('careers.show');
 });
 
+Route::get('/sitemaps', [HomeController::class, 'sitemap'])->name('sitemap');
+
 Route::prefix('cms')->group(function () {
     Route::get('/', function () {
         return auth()->check() ? to_route('cms.dashboard.index') : to_route('login');

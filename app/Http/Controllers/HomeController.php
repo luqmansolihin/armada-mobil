@@ -18,6 +18,8 @@ use App\Models\Promotion;
 use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\View\View;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 class HomeController extends Controller
 {
@@ -70,13 +72,13 @@ class HomeController extends Controller
         $operationalHours = OperationalHour::query()
             ->select(['day_from', 'day_to', 'open_time', 'close_time'])
             ->orderByRaw("CASE
-            WHEN day_from = '".DayEnum::Monday->value."' THEN 1
-            WHEN day_from = '".DayEnum::Tuesday->value."' THEN 2
-            WHEN day_from = '".DayEnum::Wednesday->value."' THEN 3
-            WHEN day_from = '".DayEnum::Thursday->value."' THEN 4
-            WHEN day_from = '".DayEnum::Friday->value."' THEN 5
-            WHEN day_from = '".DayEnum::Saturday->value."' THEN 6
-            WHEN day_from = '".DayEnum::Sunday->value."' THEN 7
+            WHEN day_from = '" . DayEnum::Monday->value . "' THEN 1
+            WHEN day_from = '" . DayEnum::Tuesday->value . "' THEN 2
+            WHEN day_from = '" . DayEnum::Wednesday->value . "' THEN 3
+            WHEN day_from = '" . DayEnum::Thursday->value . "' THEN 4
+            WHEN day_from = '" . DayEnum::Friday->value . "' THEN 5
+            WHEN day_from = '" . DayEnum::Saturday->value . "' THEN 6
+            WHEN day_from = '" . DayEnum::Sunday->value . "' THEN 7
             END")
             ->get();
 
@@ -101,18 +103,21 @@ class HomeController extends Controller
             ->orderBy('contact')
             ->get();
 
-        return view('pages.home', compact(
-            'banners',
-            'profile',
-            'services',
-            'blogs',
-            'products',
-            'brochures',
-            'testimonials',
-            'operationalHours',
-            'phoneFaxs',
-            'socMeds',
-            'emails')
+        return view(
+            'pages.home',
+            compact(
+                'banners',
+                'profile',
+                'services',
+                'blogs',
+                'products',
+                'brochures',
+                'testimonials',
+                'operationalHours',
+                'phoneFaxs',
+                'socMeds',
+                'emails'
+            )
         );
     }
 
@@ -123,8 +128,8 @@ class HomeController extends Controller
         $products = Product::query()
             ->select(['slug', 'title', 'image'])
             ->where(function ($query) use ($search) {
-                $query->where('title', 'LIKE', '%'.$search.'%')
-                    ->orWhere('content', 'LIKE', '%'.$search.'%');
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('content', 'LIKE', '%' . $search . '%');
             })
             ->where('status', 1)
             ->orderByDesc('id')
@@ -133,8 +138,8 @@ class HomeController extends Controller
         $afterSales = AfterSale::query()
             ->select(['slug', 'title', 'image', 'created_at'])
             ->where(function ($query) use ($search) {
-                $query->where('title', 'LIKE', '%'.$search.'%')
-                    ->orWhere('content', 'LIKE', '%'.$search.'%');
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('content', 'LIKE', '%' . $search . '%');
             })
             ->where('status', 1)
             ->orderByDesc('id')
@@ -143,8 +148,8 @@ class HomeController extends Controller
         $blogs = Blog::query()
             ->select(['slug', 'title', 'image', 'created_at'])
             ->where(function ($query) use ($search) {
-                $query->where('title', 'LIKE', '%'.$search.'%')
-                    ->orWhere('content', 'LIKE', '%'.$search.'%');
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('content', 'LIKE', '%' . $search . '%');
             })
             ->where('status', 1)
             ->orderByDesc('id')
@@ -153,8 +158,8 @@ class HomeController extends Controller
         $promotions = Promotion::query()
             ->select(['slug', 'title', 'image', 'created_at'])
             ->where(function ($query) use ($search) {
-                $query->where('title', 'LIKE', '%'.$search.'%')
-                    ->orWhere('content', 'LIKE', '%'.$search.'%');
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('content', 'LIKE', '%' . $search . '%');
             })
             ->where('status', 1)
             ->orderByDesc('id')
@@ -163,11 +168,11 @@ class HomeController extends Controller
         $outlets = Outlet::query()
             ->with(['outletHasOperationalHours', 'outletHasServices'])
             ->where(function ($query) use ($search) {
-                $query->where('name', 'LIKE', '%'.$search.'%')
-                    ->orWhere('address', 'LIKE', '%'.$search.'%')
-                    ->orWhere('phone', 'LIKE', '%'.$search.'%')
-                    ->orWhere('fax', 'LIKE', '%'.$search.'%')
-                    ->orWhere('email', 'LIKE', '%'.$search.'%');
+                $query->where('name', 'LIKE', '%' . $search . '%')
+                    ->orWhere('address', 'LIKE', '%' . $search . '%')
+                    ->orWhere('phone', 'LIKE', '%' . $search . '%')
+                    ->orWhere('fax', 'LIKE', '%' . $search . '%')
+                    ->orWhere('email', 'LIKE', '%' . $search . '%');
             })
             ->orderBy('name')
             ->get();
@@ -175,9 +180,9 @@ class HomeController extends Controller
         $careers = Career::query()
             ->with(['careerPlacements', 'careerPlacements.city'])
             ->where(function ($query) use ($search) {
-                $query->where('name', 'LIKE', '%'.$search.'%')
-                    ->orWhere('description', 'LIKE', '%'.$search.'%')
-                    ->orWhere('requirement', 'LIKE', '%'.$search.'%');
+                $query->where('name', 'LIKE', '%' . $search . '%')
+                    ->orWhere('description', 'LIKE', '%' . $search . '%')
+                    ->orWhere('requirement', 'LIKE', '%' . $search . '%');
             })
             ->where('status', 1)
             ->orderByDesc('registration_from')
@@ -196,13 +201,13 @@ class HomeController extends Controller
         $operationalHours = OperationalHour::query()
             ->select(['day_from', 'day_to', 'open_time', 'close_time'])
             ->orderByRaw("CASE
-            WHEN day_from = '".DayEnum::Monday->value."' THEN 1
-            WHEN day_from = '".DayEnum::Tuesday->value."' THEN 2
-            WHEN day_from = '".DayEnum::Wednesday->value."' THEN 3
-            WHEN day_from = '".DayEnum::Thursday->value."' THEN 4
-            WHEN day_from = '".DayEnum::Friday->value."' THEN 5
-            WHEN day_from = '".DayEnum::Saturday->value."' THEN 6
-            WHEN day_from = '".DayEnum::Sunday->value."' THEN 7
+            WHEN day_from = '" . DayEnum::Monday->value . "' THEN 1
+            WHEN day_from = '" . DayEnum::Tuesday->value . "' THEN 2
+            WHEN day_from = '" . DayEnum::Wednesday->value . "' THEN 3
+            WHEN day_from = '" . DayEnum::Thursday->value . "' THEN 4
+            WHEN day_from = '" . DayEnum::Friday->value . "' THEN 5
+            WHEN day_from = '" . DayEnum::Saturday->value . "' THEN 6
+            WHEN day_from = '" . DayEnum::Sunday->value . "' THEN 7
             END")
             ->get();
 
@@ -242,5 +247,60 @@ class HomeController extends Controller
             'socMeds',
             'emails'
         ));
+    }
+
+    public function sitemap(): void
+    {
+        $sitemap = Sitemap::create();
+        $sitemap->add(Url::create('/'));
+        $sitemap->add(Url::create('/profile'));
+        $sitemap->add(Url::create('/blogs'));
+        Blog::where('status', 1)->get()->each(function ($blog) use ($sitemap) {
+            $sitemap->add(
+                Url::create("/blogs/{$blog->slug}")
+                    ->setLastModificationDate($blog->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.8)
+            );
+        });
+        $sitemap->add(Url::create('/after-sales'));
+        AfterSale::where('status', 1)->get()->each(function ($afterSale) use ($sitemap) {
+            $sitemap->add(
+                Url::create("/after-sales/{$afterSale->slug}")
+                    ->setLastModificationDate($afterSale->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.8)
+            );
+        });
+        $sitemap->add(Url::create('/promotions'));
+        Promotion::where('status', 1)->get()->each(function ($promotion) use ($sitemap) {
+            $sitemap->add(
+                Url::create("/promotions/{$promotion->slug}")
+                    ->setLastModificationDate($promotion->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.8)
+            );
+        });
+        $sitemap->add(Url::create('/products'));
+        Product::where('status', 1)->get()->each(function ($product) use ($sitemap) {
+            $sitemap->add(
+                Url::create("/products/{$product->slug}")
+                    ->setLastModificationDate($product->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.8)
+            );
+        });
+        $sitemap->add(Url::create('/outlets'));
+        $sitemap->add(Url::create('/careers'));
+        Career::where('status', 1)->get()->each(function ($career) use ($sitemap) {
+            $sitemap->add(
+                Url::create("/careers/{$career->slug}")
+                    ->setLastModificationDate($career->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.8)
+            );
+        });
+        $sitemap->writeToFile(public_path('/sitemap/armadamobil/sitemap.xml'));
+        $sitemap->writeToFile(public_path('/sitemap/armadamobilisuzu/sitemap.xml'));
     }
 }
