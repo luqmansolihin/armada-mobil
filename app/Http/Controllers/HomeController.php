@@ -252,55 +252,106 @@ class HomeController extends Controller
     public function sitemap(): void
     {
         $sitemap = Sitemap::create();
-        $sitemap->add(Url::create('/'));
-        $sitemap->add(Url::create('/profile'));
-        $sitemap->add(Url::create('/blogs'));
-        Blog::where('status', 1)->get()->each(function ($blog) use ($sitemap) {
-            $sitemap->add(
-                Url::create("/blogs/{$blog->slug}")
-                    ->setLastModificationDate($blog->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8)
-            );
-        });
-        $sitemap->add(Url::create('/after-sales'));
-        AfterSale::where('status', 1)->get()->each(function ($afterSale) use ($sitemap) {
-            $sitemap->add(
-                Url::create("/after-sales/{$afterSale->slug}")
-                    ->setLastModificationDate($afterSale->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8)
-            );
-        });
-        $sitemap->add(Url::create('/promotions'));
-        Promotion::where('status', 1)->get()->each(function ($promotion) use ($sitemap) {
-            $sitemap->add(
-                Url::create("/promotions/{$promotion->slug}")
-                    ->setLastModificationDate($promotion->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8)
-            );
-        });
-        $sitemap->add(Url::create('/products'));
-        Product::where('status', 1)->get()->each(function ($product) use ($sitemap) {
-            $sitemap->add(
-                Url::create("/products/{$product->slug}")
-                    ->setLastModificationDate($product->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8)
-            );
-        });
-        $sitemap->add(Url::create('/outlets'));
-        $sitemap->add(Url::create('/careers'));
-        Career::where('status', 1)->get()->each(function ($career) use ($sitemap) {
-            $sitemap->add(
-                Url::create("/careers/{$career->slug}")
-                    ->setLastModificationDate($career->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8)
-            );
-        });
-        $sitemap->writeToFile(public_path('/sitemap/armadamobil/sitemap.xml'));
-        $sitemap->writeToFile(public_path('/sitemap/armadamobilisuzu/sitemap.xml'));
+        if (str_contains(request()->getHost(), 'armadamobil.co.id')) {
+            $sitemap->add(Url::create('/'));
+            $sitemap->add(Url::create('/profile'));
+            $sitemap->add(Url::create('/blogs'));
+            Blog::where('status', 1)->get()->each(function ($blog) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/blogs/{$blog->slug}")
+                        ->setLastModificationDate($blog->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/after-sales'));
+            AfterSale::where('status', 1)->get()->each(function ($afterSale) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/after-sales/{$afterSale->slug}")
+                        ->setLastModificationDate($afterSale->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/promotions'));
+            Promotion::where('status', 1)->get()->each(function ($promotion) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/promotions/{$promotion->slug}")
+                        ->setLastModificationDate($promotion->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/products'));
+            Product::where('status', 1)->get()->each(function ($product) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/products/{$product->slug}")
+                        ->setLastModificationDate($product->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/outlets'));
+            $sitemap->add(Url::create('/careers'));
+            Career::where('status', 1)->get()->each(function ($career) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/careers/{$career->slug}")
+                        ->setLastModificationDate($career->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->writeToFile(public_path('/sitemap/armadamobil/sitemap.xml'));
+        } else {
+            $sitemap->add(Url::create('/'));
+            $sitemap->add(Url::create('/profile'));
+            $sitemap->add(Url::create('/blogs'));
+            Blog::where('status', 1)->get()->each(function ($blog) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/blogs/{$blog->slug}")
+                        ->setLastModificationDate($blog->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/after-sales'));
+            AfterSale::where('status', 1)->get()->each(function ($afterSale) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/after-sales/{$afterSale->slug}")
+                        ->setLastModificationDate($afterSale->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/promotions'));
+            Promotion::where('status', 1)->get()->each(function ($promotion) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/promotions/{$promotion->slug}")
+                        ->setLastModificationDate($promotion->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/products'));
+            Product::where('status', 1)->get()->each(function ($product) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/products/{$product->slug}")
+                        ->setLastModificationDate($product->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->add(Url::create('/outlets'));
+            $sitemap->add(Url::create('/careers'));
+            Career::where('status', 1)->get()->each(function ($career) use ($sitemap) {
+                $sitemap->add(
+                    Url::create("/careers/{$career->slug}")
+                        ->setLastModificationDate($career->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8)
+                );
+            });
+            $sitemap->writeToFile(public_path('/sitemap/armadamobilisuzu/sitemap.xml'));
+        }
     }
 }
